@@ -1,14 +1,14 @@
-import React from 'react'; 
+import React from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router'
 
 class SplashLogin extends React.Component {
   constructor(props) {
-    super(props);
-
+    super(props)
   }
+
   render() {
     return (
-      <div>Hello from SplashLogin
+      <div>
         <Link to='/register'>
           <button>Register</button>
         </Link>

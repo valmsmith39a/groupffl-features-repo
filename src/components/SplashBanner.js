@@ -1,16 +1,21 @@
 import React from 'react';
+
 import SplashLogin from './SplashLogin';
+import styles from '../styles';
 
 class SplashBanner extends React.Component {
   constructor(props) {
     super(props)
+    this.logoUrl = "https://pbs.twimg.com/profile_images/696734415813120000/1QlOcYT7.jpg";
   }
   render() {
     return (
-      <div>Hello from Splash Banner
-        <img src="https://pbs.twimg.com/profile_images/696734415813120000/1QlOcYT7.jpg" />
-        <h1>Awesome Title</h1>
-        <SplashLogin />
+      <div className="container">
+        <div className="row">
+          <img src={this.logoUrl} style={styles.shrinkLogo} className="col-md-2"/>
+          <h1 className="col-md-8 text-center">Awesome Title</h1>
+          <SplashLogin />
+        </div>
       </div>
     )
   }
