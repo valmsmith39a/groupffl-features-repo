@@ -1,5 +1,4 @@
 import React from 'react';
-import SplashTitle from './SplashTitle';
 import SplashLogin from './SplashLogin';
 
 class SplashBanner extends React.Component {
@@ -9,7 +8,8 @@ class SplashBanner extends React.Component {
   render() {
     return (
       <div>Hello from Splash Banner
-        <SplashTitle />
+        <img src="https://pbs.twimg.com/profile_images/696734415813120000/1QlOcYT7.jpg" />
+        <h1>Awesome Title</h1>
         <SplashLogin />
       </div>
     )
