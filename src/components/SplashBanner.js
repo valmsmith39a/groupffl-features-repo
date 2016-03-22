@@ -6,7 +6,7 @@ class SplashBanner extends React.Component {
   }
   render() {
     return (
-      <div>Splash Banner</div>
+      <div>Hello from Splash Banner</div>
     )
   }
 }
