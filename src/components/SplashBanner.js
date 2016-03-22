@@ -1,7 +1,6 @@
 import React from 'react';
 
 import SplashLogin from './SplashLogin';
-import styles from '../styles';
 
 class SplashBanner extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class SplashBanner extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <img src={this.logoUrl} style={styles.shrinkLogo} className="col-md-2"/>
+          <img src={this.logoUrl} className="col-md-2"/>
           <h1 className="col-md-8 text-center">Awesome Title</h1>
           <SplashLogin />
         </div>

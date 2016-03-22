@@ -1,7 +1,10 @@
+require('dotenv').config();
+
 const debug        = require('debug')('ffln:server');
 const http         = require('http');
 
 const express      = require('express');
+const session      = require('express-session');
 
 const bodyParser   = require('body-parser');
 const chalk        = require('chalk');
@@ -10,7 +13,18 @@ const favicon      = require('favicon');
 const logger       = require('morgan');
 const path         = require('path');
 
+global.models = path.join(__dirname, "/models/");
+
 const app = express();
+
+const mongoose = require('mongoose');
+const mongoUrl = process.env.MLAB_URI || 'mongodb://localhost/ffln';
+
+const mongoConnectMsg = process.env.MLAB_URI ? "." : chalk.cyan(` ${mongoUrl}`);
+
+mongoose.connect(mongoUrl, err => {
+  console.log(err ? chalk.red(err) : chalk.blue.bold(`Connected to MongoDB${mongoConnectMsg}`));
+})
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -34,12 +48,9 @@ app.use((req, res, next) => { // FIXME: Remove this after React Router is implem
 });
 
 if (app.get('env') === 'development') {
-  app.use((error, req, res, next) => {
-    res.status(error.status || 500);
-    res.render('error', {
-      message: error.message,
-      error
-    });
+  app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.render('error', {err});
   });
 }
 
