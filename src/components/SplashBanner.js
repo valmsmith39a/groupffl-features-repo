@@ -1,5 +1,6 @@
 import React from 'react';
 import SplashTitle from './SplashTitle';
+import SplashLogin from './SplashLogin';
 
 class SplashBanner extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class SplashBanner extends React.Component {
     return (
       <div>Hello from Splash Banner
         <SplashTitle />
+        <SplashLogin />
       </div>
     )
   }
