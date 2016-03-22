@@ -1,5 +1,11 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: __dirname + '/src/index.html',
+  inject: 'head'
+});
+
 module.exports = {
-  entry: "./entry.js",
+  entry: "./src/index.js",
   cache: true,
   debug: true,
   devtool: "source-map",
@@ -15,7 +21,10 @@ module.exports = {
       }
     ],
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
+      {
+        test: /\.css$/,
+        loader: "style!css"
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -25,5 +34,8 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    HtmlWebpackPluginConfig
+  ]
 }
