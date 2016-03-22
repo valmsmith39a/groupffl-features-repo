@@ -1,5 +1,5 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: __dirname + '/src/index.html',
   inject: 'body'
 });
@@ -17,7 +17,8 @@ module.exports = {
     preLoaders: [
       {
         test: /\.js$/,
-        loader: "source-map-loader"
+        exclude: /(node_modules|bower_components)/,
+        loaders: ["source-map-loader"]
       }
     ],
     loaders: [
@@ -28,7 +29,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loaders: ["babel"]
+        loaders: ["uglify", "babel"],
+        "uglify-loader": {
+          mangle: true
+        }
       }
     ]
   },
