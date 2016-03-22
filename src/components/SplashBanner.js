@@ -1,4 +1,5 @@
 import React from 'react';
+import SplashTitle from './SplashTitle';
 
 class SplashBanner extends React.Component {
   constructor(props) {
@@ -6,7 +7,9 @@ class SplashBanner extends React.Component {
   }
   render() {
     return (
-      <div>Hello from Splash Banner</div>
+      <div>Hello from Splash Banner
+        <SplashTitle />
+      </div>
     )
   }
 }
