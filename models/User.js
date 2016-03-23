@@ -49,6 +49,7 @@
         let authData = {
           username: foundUser.username,
           email: foundUser.email,
+          _id: foundUser._id,
           iat: Date.now()
         };
         let authToken = jwt.encode(authData, JWT_SECRET);
@@ -58,7 +59,21 @@
     });
   };
 
-  let User = mongoose.model('User', userSchema);
+  userSchema.statics.isLoggedIn = (req, res, next) => {
+    if(!req.cookies.authToken) return res.status(403).send('You must be logged in to perform this action (1)');
+    try {
+      let userData = jwt.decode(req.cookies.authToken, JWT_SECRET);
+      User.findById(userData._id, (err, foundUser) => {
+        if (err) return res.status(400).send(err);
+        if (!foundUser) return res.status(403).send('You must be logged in to perform this action (2)');
+        req.user = foundUser._id;
+        next();
+      })
+    } catch (err) {
+      return res.status(400).send(err);
+    }
+  }
+  const User = mongoose.model('User', userSchema);
 
   module.exports = User;
 }());
