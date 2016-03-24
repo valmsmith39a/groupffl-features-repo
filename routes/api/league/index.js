@@ -5,7 +5,7 @@ const League = require(global.models + '/League');
 
 router.get('/', (req, res) => {
   League.find({}, (err, leagues) => {
-    if (err) return res.status(400).send(err);
+    if (err) { return res.status(400).send(err); }
     res.send(leagues);
   });
 });

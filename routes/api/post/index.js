@@ -6,7 +6,7 @@ const User = require(global.models + '/User');
 
 router.get('/', User.isLoggedIn, (req, res) => {
   Post.find({ author: req.user }, (err, post) => {
-    if (err) return res.status(400).send(err);
+    if (err) { return res.status(400).send(err); }
     res.send(post);
   });
 });

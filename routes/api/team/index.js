@@ -6,7 +6,7 @@ const User = require(global.models + '/User');
 
 router.get('/', User.isLoggedIn, (req, res) => {
   Team.find({ owner: req.user}, (err, teams) => {
-    if (err) return res.status(400).send(err);
+    if (err) { return res.status(400).send(err); }
     res.send(teams);
   });
 });
