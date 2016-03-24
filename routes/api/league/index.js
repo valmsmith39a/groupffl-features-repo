@@ -18,7 +18,6 @@
     if (!req.body.team || !req.body.title) { return res.status(400).send('Missing League or Team name'); }
     let title = req.body.title.trim();
     let titleReg = new RegExp(`^${title}$`, 'i');
-    console.log(`titleReg: ${titleReg}`);
     League.findOne({ title: titleReg }, (err, foundLeague) => {
       if (err) { return res.status(400).send(err); }
       if (foundLeague) { return res.status(400).send('A League with this name already exists'); }
@@ -45,7 +44,10 @@
             if (err) { return res.status(400).send(err); }
             team.save(err => {
               if (err) { return res.status(400).send(err); }
-              res.send('League created');
+              res.send({
+                message: 'League created',
+                data: { league: league }
+              });
             });
           });
         });
