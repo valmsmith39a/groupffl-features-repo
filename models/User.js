@@ -10,8 +10,9 @@
   let userSchema = new mongoose.Schema({
     username: { type: String, lowercase: true, trim: true, required: true },
     password: { type:String, required: true },
-    email: { type: mongoose.SchemaTypes.Email, lowercase: true, trim: true, required: true },
-    // teams: { type: mongoose}
+    email: { type: mongoose.Schema.Types.Email, lowercase: true, trim: true, required: true },
+    leagues: [{ type: mongoose.Schema.Types.ObjectId, ref: 'League' }],
+    teams: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Team'}]
   });
 
   userSchema.statics.register = (req, res, next) => {

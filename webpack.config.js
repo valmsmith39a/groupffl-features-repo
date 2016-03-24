@@ -38,5 +38,8 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig
-  ]
+  ],
+  eslint: {
+    configFile: ".eslintrc"
+  }
 }
