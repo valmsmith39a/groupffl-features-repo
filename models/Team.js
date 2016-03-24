@@ -3,8 +3,8 @@
   const mongoose = require('mongoose');
 
   const teamSchema = new mongoose.Schema({
-    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-    league: { type: mongoose.Schema.Types.ObjectId, ref: 'League' },
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    league: { type: mongoose.Schema.Types.ObjectId, ref: 'League', required: true },
     posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
     imgUrl: { type: String },
