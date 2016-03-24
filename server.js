@@ -4,23 +4,22 @@ const debug        = require('debug')('ffln:server');
 const http         = require('http');
 
 const express      = require('express');
-const session      = require('express-session');
 
 const bodyParser   = require('body-parser');
 const chalk        = require('chalk');
 const cookieParser = require('cookie-parser');
-const favicon      = require('favicon');
+// const favicon      = require('favicon');
 const logger       = require('morgan');
 const path         = require('path');
 
-global.models = path.join(__dirname, "/models/");
+global.models = path.join(__dirname, '/models/');
 
 const app = express();
 
 const mongoose = require('mongoose');
 const mongoUrl = process.env.MLAB_URI || 'mongodb://localhost/ffln';
 
-const mongoConnectMsg = process.env.MLAB_URI ? "." : chalk.cyan(` ${mongoUrl}`);
+const mongoConnectMsg = process.env.MLAB_URI ? '.' : chalk.cyan(` ${mongoUrl}`);
 
 mongoose.connect(mongoUrl, err => {
   console.log(err ? chalk.red(err) : chalk.blue.bold(`Connected to MongoDB${mongoConnectMsg}`));
@@ -36,19 +35,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/api', require('./routes/api'));
-app.all('/', (req, res, next) => {
+app.all('/', (req, res) => {
   res.send('dist/index');
 });
 
 app.use((req, res, next) => { // FIXME: Remove this after React Router is implemented
-  "use strict";
+  'use strict';
   let err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
 if (app.get('env') === 'development') {
-  app.use((err, req, res, next) => {
+  app.use((err, req, res) => {
     res.status(err.status || 500);
     res.render('error', {err});
   });

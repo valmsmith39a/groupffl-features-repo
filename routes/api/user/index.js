@@ -3,7 +3,7 @@
   const express = require('express');
   const router = express.Router();
 
-  const User = require(global.models + "/User");
+  const User = require(global.models + '/User');
 
 
   router.post('/register', User.register, User.login, (req, res) => {

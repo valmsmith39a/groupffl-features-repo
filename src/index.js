@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import Splash from './components/Splash';
 
-require("./style.scss");
+require('./style.scss');
 
 console.log('in index.js');
 

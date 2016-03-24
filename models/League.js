@@ -1,5 +1,5 @@
 (function(){
-  "use strict";
+  'use strict';
   const mongoose = require('mongoose');
 
   const leagueSchema = new mongoose.Schema({

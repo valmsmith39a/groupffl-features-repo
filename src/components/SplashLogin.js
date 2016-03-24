@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { /*Router, Route, , browserHistory*/ Link } from 'react-router'
 
 class SplashLogin extends React.Component {
   constructor(props) {
@@ -9,10 +9,10 @@ class SplashLogin extends React.Component {
   render() {
     return (
       <div>
-        <Link to='/register'>
+        <Link to="/register">
           <button>Register</button>
         </Link>
-        <Link to='/login'>
+        <Link to="/login">
           <button>Login</button>
         </Link>
       </div>

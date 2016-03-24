@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const Team = require(global.models + "/Team");
-const User = require(global.models + "/User");
+const Team = require(global.models + '/Team');
+const User = require(global.models + '/User');
 
 router.get('/', User.isLoggedIn, (req, res) => {
   Team.find({ owner: req.user}, (err, teams) => {

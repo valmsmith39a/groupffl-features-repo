@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const League = require(global.models + "/League");
-const User = require(global.models + "/User");
+const League = require(global.models + '/League');
 
 router.get('/', (req, res) => {
   League.find({}, (err, leagues) => {
