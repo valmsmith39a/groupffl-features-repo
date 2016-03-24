@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "lint": "eslint . --ext .js --ext .jsx || true",
     "production": "webpack -p",
     "start": "node server.js",
-    "lint": "eslint . --ext .js --ext .jsx || true"
+    "webpack": "webpack --colors --progress --watch"
   },
   "repository": {
     "type": "git",
