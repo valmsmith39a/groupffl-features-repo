@@ -74,6 +74,7 @@
       return res.status(400).send(err);
     }
   };
+
   const User = mongoose.model('User', userSchema);
 
   module.exports = User;
