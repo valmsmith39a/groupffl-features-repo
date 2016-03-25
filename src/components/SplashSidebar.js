@@ -1,13 +1,10 @@
-import React from 'react'; 
-
 import Leagues from './Leagues';
 import NewsFeed from './NewsFeed';
+import React from 'react';
+
 
 class SplashSidebar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render () {
+  render() {
     return (
       <div>Hello from Sidebar
         <Leagues />

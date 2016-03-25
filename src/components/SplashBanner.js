@@ -4,7 +4,7 @@ import SplashLogin from './SplashLogin';
 
 class SplashBanner extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.logoUrl = 'https://pbs.twimg.com/profile_images/696734415813120000/1QlOcYT7.jpg';
   }
   render() {
@@ -16,7 +16,7 @@ class SplashBanner extends React.Component {
           <SplashLogin />
         </div>
       </div>
-    )
+    );
   }
 }
 

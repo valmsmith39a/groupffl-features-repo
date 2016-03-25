@@ -4,9 +4,6 @@ import SplashDemo from './SplashDemo';
 import SplashSidebar from './SplashSidebar';
 
 class SplashBody extends React.Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <div>
@@ -14,7 +11,7 @@ class SplashBody extends React.Component {
         <SplashDemo />
         <SplashSidebar />
       </div>
-    )
+    );
   }
 }
 

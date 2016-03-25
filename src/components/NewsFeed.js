@@ -1,9 +1,6 @@
-import React from 'react'; 
+import React from 'react';
 
 class NewsFeed extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>NewsFeed</div>
@@ -11,4 +8,4 @@ class NewsFeed extends React.Component {
   }
 }
 
-export default NewsFeed; 
+export default NewsFeed;
