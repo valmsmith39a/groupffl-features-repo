@@ -1,9 +1,6 @@
-import React from 'react'; 
+import React from 'react';
 
 class Leagues extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>League Component</div>
@@ -11,4 +8,4 @@ class Leagues extends React.Component {
   }
 }
 
-export default Leagues; 
+export default Leagues;

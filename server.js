@@ -1,16 +1,16 @@
 require('dotenv').config();
 
-const debug        = require('debug')('ffln:server');
-const http         = require('http');
+const debug = require('debug')('ffln:server');
+const http = require('http');
 
-const express      = require('express');
+const express = require('express');
 
-const bodyParser   = require('body-parser');
-const chalk        = require('chalk');
+const bodyParser = require('body-parser');
+const chalk = require('chalk');
 const cookieParser = require('cookie-parser');
 // const favicon      = require('favicon');
-const logger       = require('morgan');
-const path         = require('path');
+const logger = require('morgan');
+const path = require('path');
 
 global.models = path.join(__dirname, '/models/');
 
@@ -23,7 +23,7 @@ const mongoConnectMsg = process.env.MLAB_URI ? '.' : chalk.cyan(` ${mongoUrl}`);
 
 mongoose.connect(mongoUrl, err => {
   console.log(err ? chalk.red(err) : chalk.blue.bold(`Connected to MongoDB${mongoConnectMsg}`));
-})
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -49,7 +49,7 @@ app.use((req, res, next) => { // FIXME: Remove this after React Router is implem
 if (app.get('env') === 'development') {
   app.use((err, req, res) => {
     res.status(err.status || 500);
-    res.render('error', {err});
+    res.render('error', { err });
   });
 }
 
@@ -65,7 +65,7 @@ server.on('listening', onListening);
 function normalizePort(val) {
   const port = parseInt(val, 10);
 
-  if (isNaN(port)){
+  if (isNaN(port)) {
     return val;
   }
 
@@ -104,6 +104,6 @@ function onListening() {
   const bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + port;
-    debug('Listening on ' + bind);
-    console.log(chalk.blue.bold(`Listening at ${chalk.green.underline(`http://localhost:${port}`)}`));
+  debug('Listening on ' + bind);
+  console.log(chalk.blue.bold(`Listening at ${chalk.green.underline(`http://localhost:${port}`)}`));
 }
