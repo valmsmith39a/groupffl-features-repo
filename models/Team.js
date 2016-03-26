@@ -14,7 +14,6 @@
   });
 
   teamSchema.statics.createMW = (req, res, next) => {
-    // const League = require(global.models + '/League');
     if (!req.body.team || !req.body.leagueId) { return res.status(400).send('Both Team name & League ID are required to create a new Team'); }
     let title = req.body.team.trim();
     let titleReg = new RegExp(`^${title}$`, 'i');

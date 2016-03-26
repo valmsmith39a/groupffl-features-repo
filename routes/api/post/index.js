@@ -11,4 +11,8 @@ router.get('/', User.isLoggedIn, (req, res) => {
   });
 });
 
+router.post('/', User.isLoggedIn, Post.createMW, (req, res) => {
+  res.send('Post created');
+});
+
 module.exports = router;
