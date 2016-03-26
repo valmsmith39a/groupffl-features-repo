@@ -7,16 +7,16 @@ export default class RegisterForm extends Component {
         <h2 className="login-title">Register</h2>
         <form className="col-xs-10 col-xs-offset-1">
           <div className="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" />
+            <label>Email address</label>
+            <input type="email" className="form-control" placeholder="Email" />
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+            <label>Password</label>
+            <input type="password" className="form-control" placeholder="Password" />
           </div>
           <div className="form-group">
-            <label for="exampleInputPassword2">Password (again)</label>
-            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+            <label>Password (again)</label>
+            <input type="password" className="form-control" placeholder="Password" />
           </div>
           <button type="submit" className="btn btn-default">Register</button>
         </form>

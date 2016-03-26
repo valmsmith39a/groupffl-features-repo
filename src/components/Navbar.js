@@ -10,7 +10,9 @@ export default class Navbar extends Component {
     return (
       <div className="col-xs-12 navbar">
         <div className="pull-left navbar-logo">
-          <h3>GroupFFL</h3>
+          <h3>
+            <Link to="/" className="navbar-logo-button"> GroupFFL</Link>
+          </h3>
         </div>
         <div className="pull-right navbar-buttons">
           <Link to="/register" className="btn btn-primary navbar-register"> Register</Link>
