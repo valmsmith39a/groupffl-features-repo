@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { loginUser } from '../actions/index';
-
+import { Link, browserHistory } from 'react-router';
 
 class LoginForm extends Component {
 
@@ -9,9 +9,12 @@ class LoginForm extends Component {
     console.log('props: ', props);
     this.props.loginUser(props)
       .then(() => {
+        this.props.history.push('/');
         console.log('login successful');
       })
   }
+
+
 
   render() {
     const { fields: {email, password}, handleSubmit } = this.props;
@@ -23,7 +26,7 @@ class LoginForm extends Component {
         <form
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
           className="col-xs-10 col-xs-offset-1">
-          <div className="form-group">
+          <div className={`form-group ${email.touched && email.invalid ? 'has-danger' : ''}`}>
             <label>Email address</label>
             <input
               type="email"
@@ -31,13 +34,19 @@ class LoginForm extends Component {
               placeholder="Email"
               {...email} />
           </div>
-          <div className="form-group">
+          <div className="text-help">
+            {email.touched ? email.error : ''}
+          </div>
+          <div className={`form-group ${email.touched && email.invalid ? 'has-danger' : ''}`}>
             <label>Password</label>
             <input
               type="password"
               className="form-control"
               placeholder="Password"
               {...password} />
+          </div>
+          <div className="text-help">
+            {password.touched ? password.error : ''}
           </div>
           <button type="submit" className="btn btn-default">Login</button>
         </form>
@@ -46,7 +55,22 @@ class LoginForm extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if(!values.email) {
+    errors.email = 'Enter an email';
+  }
+
+  if(!values.password) {
+    errors.password = 'Enter a password';
+  }
+
+  return errors;
+}
+
 export default reduxForm({
   form: 'LoginForm',
   fields: ['email', 'password'],
+  validate
 }, null, { loginUser })(LoginForm);
