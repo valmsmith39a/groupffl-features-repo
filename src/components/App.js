@@ -10,10 +10,8 @@ export default class App extends Component {
       <div>
         <Navbar />
         <JoinPanel />
-        {/*
-        {this.props.children}
-        */}
         <LeaguesPanel />
+        {this.props.children}
       </div>
     )
   }
