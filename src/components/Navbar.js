@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class Navbar extends Component {
   componentWillMount() {
@@ -7,7 +8,10 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <div>This is the Navbar</div>
+      <div>
+        <Link to="/register" className="btn btn-primary"> Register</Link>
+        <Link to="/login" className="btn btn-primary"> Login</Link>
+      </div>
     )
   }
 }
