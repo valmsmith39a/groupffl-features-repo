@@ -54,7 +54,17 @@ body {
 }
 
 .login-form {
+  background-color: lightgray;
+  height: 600px;
 
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+}
+
+.register-form {
   background-color: lightgray;
   height: 600px;
 
