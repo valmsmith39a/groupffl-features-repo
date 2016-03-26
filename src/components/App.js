@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 
+import Navbar from './Navbar';
+
 export default class App extends Component {
   render() {
     return (
-      <div>We are in the App</div>
+      <div>
+        <Navbar />
+        {/*
+        {this.props.children}
+        <JoinPanel />
+        <MyLeaguesPanel />
+      */}
+      </div>
     )
   }
 }

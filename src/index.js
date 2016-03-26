@@ -7,8 +7,6 @@ import { Router, browserHistory } from 'react-router';
 import routes from './routes';
 // import promise from 'redux-promise';
 
-import App from './components/App';
-
 require('./style.scss');
 
 console.log('in index.js');
