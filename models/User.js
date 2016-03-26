@@ -44,7 +44,7 @@
       if (err) { return res.status(400).send(err); }
       if (foundUser) { return res.status(400).send('This e-mail is currently in use'); }
       let user = new User();
-      user.username = req.body.username.toLowerCase();
+      // user.username = req.body.username.toLowerCase();
       user.email = req.body.email.toLowerCase();
       bcrypt.hash(req.body.password, 16, (err, hash) => {
         if (err) { return res.status(400).send(err); }
