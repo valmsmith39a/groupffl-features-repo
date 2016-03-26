@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Navbar from './Navbar';
 import JoinPanel from './JoinPanel';
+import LeaguesPanel from './LeaguesPanel';
 
 export default class App extends Component {
   render() {
@@ -11,8 +12,8 @@ export default class App extends Component {
         <JoinPanel />
         {/*
         {this.props.children}
-        <MyLeaguesPanel />
-      */}
+        */}
+        <LeaguesPanel />
       </div>
     )
   }
