@@ -1,4 +1,4 @@
-// require('dotenv').config();
+require('dotenv').config();
 
 const debug = require('debug')('ffln:server');
 const http = require('http');
@@ -35,24 +35,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use('/api', require('./routes/api'));
-app.all('/', (req, res) => {
-  res.send('dist/index');
+app.use('/*', (req, res) => {
+  res.render('index');
 });
-
-app.use((req, res, next) => { // FIXME: Remove this after React Router is implemented
-  'use strict';
-  let err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
+/*
 if (app.get('env') === 'development') {
   app.use((err, req, res) => {
     res.status(err.status || 500);
     res.render('error', { err });
   });
 }
-
+*/
 const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
