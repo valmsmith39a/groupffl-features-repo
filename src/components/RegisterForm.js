@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { registerUser } from '../actions/index';
-import { Link } from 'react-router'; // Only for Cancel
+import { Link, browserHistory } from 'react-router'; // Only for Cancel
 
 class RegisterForm extends Component {
+
   onSubmit(props) {
     console.log(props)
     this.props.registerUser(props)
       .then(() => {
+        this.props.history.push('/login');
         console.log('resolved');
       })
   }
