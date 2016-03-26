@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 
 export default () => {
     return (
-      <div>
-        <Link to="/join" className="btn btn-primary">Join League</Link>
-        <Link to="/create" className="btn btn-primary">Create League</Link>
+      <div className="col-xs-3 join-panel">
+          <Link to="/join" className="join-button join-panel-buttons">Join League</Link>
+          <Link to="/create" className="create-button join-panel-buttons">Create League</Link>
       </div>
     )
 }

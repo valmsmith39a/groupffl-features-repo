@@ -2,3 +2,48 @@ $blueish: #44FFFF;
 body {
   background: $blueish;
 }
+
+.navbar {
+    background-color: gray;
+    padding-bottom: 10px;
+    // min-width: 1000px;
+    // width: 1000px;
+
+  .navbar-title {
+
+  }
+
+  .navbar-logo {
+    margin-top: 2px;
+  }
+
+  .navbar-login {
+    margin-top: 20px;
+  }
+  .navbar-register {
+    margin-top: 20px;
+    margin-right: 5px;
+  }
+}
+
+.media {
+  background-color: red;
+  margin:0;
+}
+
+.join-panel {
+
+  height: 600px;
+  background-color: blue;
+
+  .join-panel-buttons {
+    margin-top: 20px;
+    text-align: center;
+    padding: 20px;
+    display: inline-block;
+    width: 100%;
+    background-color: green;
+    color: white;
+  }
+
+}
