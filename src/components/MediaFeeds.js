@@ -2,8 +2,17 @@ import React, { Component } from 'react';
 
 export default class MediaFeeds extends Component {
   render() {
+    const placehold1 = "http://placehold.it/300x200";
+    const placehold2 = "http://placehold.it/300x400";
     return (
-      <div>Media Feeds </div>
+      <div className="col-xs-3 media-feeds">
+        <div className="row">
+          <img className="img-responsive feeds" src={placehold1} />
+        </div>
+        <div className="row">
+          <img className="img-responsive feeds" src={placehold2} />
+        </div>
+      </div>
     );
   }
 }

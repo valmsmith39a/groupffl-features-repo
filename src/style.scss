@@ -96,3 +96,28 @@ body {
     margin-bottom: 50px;
   }
 }
+
+.league-info {
+  height: 600px;
+  background-color: gray;
+}
+
+.posts {
+  height: 600px;
+  background-color: green;
+
+  .post-area {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+  }
+}
+
+.media-feeds {
+  height: 600px;
+  background-color: blue;
+
+  .feeds {
+    margin-top: 40px;  
+  }
+}

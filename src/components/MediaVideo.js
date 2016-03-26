@@ -6,7 +6,9 @@ export default class MediaVideo extends Component {
 
     return (
       <div className="col-xs-6 media">
-        <img src={placehold} />
+        <div className="row">
+          <img className="img-responsive" src={placehold} />
+        </div>
       </div>
     )
   }
