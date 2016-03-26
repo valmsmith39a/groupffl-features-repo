@@ -8,32 +8,50 @@
   const JWT_SECRET = process.env.JWT_SECRET;
 
   let userSchema = new mongoose.Schema({
-    username: { type: String, lowercase: true, trim: true, required: true },
+    // username: { type: String, lowercase: true, trim: true, required: true },
     password: { type: String, required: true },
     email: { type: mongoose.Schema.Types.Email, lowercase: true, trim: true, required: true },
     leagues: [{ type: mongoose.Schema.Types.ObjectId, ref: 'League' }],
     teams: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Team' }]
   });
 
+  // userSchema.statics.register = (req, res, next) => {
+  //   if (!req.body.username || !req.body.email || !req.body.password || !req.body.verifyPassword) { return res.status(400).send('One or more fields left blank'); }
+  //   if (req.body.password != req.body.verifyPassword) { return res.status(400).send('Passwords must match'); }
+  //   User.findOne({ username: req.body.username.toLowerCase() }, (err, foundUser) => {
+  //     if (err) { return res.status(400).send(err); }
+  //     if (foundUser) { return res.status(400).send('This username is already taken'); }
+  //     User.findOne({ email: req.body.email.toLowerCase() }, (err, foundUser) => {
+  //       if (err) { return res.status(400).send(err); }
+  //       if (foundUser) { return res.status(400).send('This e-mail is currently in use'); }
+  //       let user = new User();
+  //       user.username = req.body.username.toLowerCase();
+  //       user.email = req.body.email.toLowerCase();
+  //       bcrypt.hash(req.body.password, 16, (err, hash) => {
+  //         if (err) { return res.status(400).send(err); }
+  //         user.password = hash;
+  //         user.save(err => {
+  //           if (err) { return res.status(400).send(err); }
+  //           next();
+  //         });
+  //       });
+  //     });
+  //   });
+  // };
+
   userSchema.statics.register = (req, res, next) => {
-    if (!req.body.username || !req.body.email || !req.body.password || !req.body.verifyPassword) { return res.status(400).send('One or more fields left blank'); }
-    if (req.body.password != req.body.verifyPassword) { return res.status(400).send('Passwords must match'); }
-    User.findOne({ username: req.body.username.toLowerCase() }, (err, foundUser) => {
+    User.findOne({ email: req.body.email.toLowerCase() }, (err, foundUser) => {
       if (err) { return res.status(400).send(err); }
-      if (foundUser) { return res.status(400).send('This username is already taken'); }
-      User.findOne({ email: req.body.email.toLowerCase() }, (err, foundUser) => {
+      if (foundUser) { return res.status(400).send('This e-mail is currently in use'); }
+      let user = new User();
+      user.username = req.body.username.toLowerCase();
+      user.email = req.body.email.toLowerCase();
+      bcrypt.hash(req.body.password, 16, (err, hash) => {
         if (err) { return res.status(400).send(err); }
-        if (foundUser) { return res.status(400).send('This e-mail is currently in use'); }
-        let user = new User();
-        user.username = req.body.username.toLowerCase();
-        user.email = req.body.email.toLowerCase();
-        bcrypt.hash(req.body.password, 16, (err, hash) => {
+        user.password = hash;
+        user.save(err => {
           if (err) { return res.status(400).send(err); }
-          user.password = hash;
-          user.save(err => {
-            if (err) { return res.status(400).send(err); }
-            next();
-          });
+          next();
         });
       });
     });
