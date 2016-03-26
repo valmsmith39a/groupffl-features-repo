@@ -1,4 +1,4 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 const debug = require('debug')('ffln:server');
 const http = require('http');
