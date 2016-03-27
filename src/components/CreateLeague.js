@@ -1,14 +1,3 @@
-/*
-Get the data from form and send create a league object in League database
-
-// Change to Container, link component to dispatcher
-// Connect to reduxForm higher order component
-// Post request to create a league
-
-// Make post request
-// Validate input data
-
-*/
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { createLeague } from '../actions/index';
@@ -22,7 +11,7 @@ class CreateLeague extends Component {
       })
   }
   render() {
-    const { fields: { leagueName, leagueURL, teamName }, handleSubmit } = this.props;
+    const { fields: { name, leagueURL, team }, handleSubmit } = this.props;
 
     return (
       <div className="col-xs-6 create-league-form">
@@ -31,12 +20,12 @@ class CreateLeague extends Component {
         <form
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
           className="col-xs-10 col-xs-offset-1">
-          <div className={`form-group ${leagueName.touched && leagueName.invalid ? 'has-danger' : ''}`}>
+          <div className={`form-group ${name.touched && name.invalid ? 'has-danger' : ''}`}>
             <label>League Name</label>
             <input type="text" className="form-control" placeholder="Enter League Name"
-            {...leagueName} />
+            {...name} />
             <div className="text-help">
-              {leagueName.touched ? leagueName.error : ''}
+              {name.touched ? name.error : ''}
             </div>
           </div>
           <div className={`form-group ${leagueURL.touched && leagueURL.invalid ? 'has-danger' : ''}`}>
@@ -47,12 +36,12 @@ class CreateLeague extends Component {
               {leagueURL.touched ? leagueURL.error : ''}
             </div>
           </div>
-          <div className={`form-group ${leagueURL.touched && teamName.invalid ? 'has-danger' : ''}`}>
+          <div className={`form-group ${leagueURL.touched && team.invalid ? 'has-danger' : ''}`}>
             <label>Team Name</label>
             <input type="text" className="form-control" placeholder="Enter Team Name"
-            {...teamName} />
+            {...team} />
             <div className="text-help">
-              {teamName.touched ? teamName.error : ''}
+              {team.touched ? team.error : ''}
             </div>
           </div>
           <button type="submit" className="btn btn-default">Create</button>
@@ -65,6 +54,6 @@ class CreateLeague extends Component {
 
 export default reduxForm ({
   form: 'CreateLeague',
-  fields: ['leagueName', 'leagueURL', 'teamName'],
+  fields: ['name', 'leagueURL', 'team'],
   //validate
 }, null, { createLeague })(CreateLeague);
