@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-export default class MediaFeeds extends Component {
+
+class MediaFeeds extends Component {
+  componentWillMount() {
+    this.props.fetchRSS();
+      // .then((response) => {
+      //   console.log('resolved');
+      //   console.log(response);
+      // })
+  }
+
   render() {
     const placehold1 = "http://placehold.it/300x200";
     const placehold2 = "http://placehold.it/300x400";
     return (
       <div className="col-xs-3 media-feeds">
-        {/*}
+
         <div className="row">
-          <img className="img-responsive feeds" src={placehold1} />
+
         </div>
-        */}
+
         <div className="row">
           <a className="twitter-timeline" href="https://twitter.com/hashtag/FantasyFootball" data-widget-id="713864014485282816">#FantasyFootball Tweets</a>
         </div>
@@ -18,3 +29,9 @@ export default class MediaFeeds extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { rss: state.rss }
+}
+
+export default connect(mapStateToProps, actions)(MediaFeeds)
