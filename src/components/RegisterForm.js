@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import * as actions from '../actions/index';
+import { registerUser } from '../actions/index';
 import { Link, browserHistory } from 'react-router'; // Only for Cancel
 
 class RegisterForm extends Component {
@@ -88,4 +88,4 @@ export default reduxForm({
   form: 'RegisterForm',
   fields: ['email', 'password', 'password2'],
   validate
-}, null, actions )(RegisterForm);
+}, null, { registerUser } )(RegisterForm);

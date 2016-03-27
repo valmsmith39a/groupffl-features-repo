@@ -11,15 +11,36 @@ class MediaFeeds extends Component {
       })
   }
 
+  renderList() {
+    console.log(this.props.rss)
+    return this.props.rss.data.map(article => {
+      return (
+        <li
+          key={article.NewsID}
+          className="list-group-item">
+          {article.Title}
+        </li>
+      );
+    });
+  }
+
   render() {
+
+    if (!this.props.rss.data) {
+      return (
+        <div>Loading...</div>
+      )
+    }
     console.log(this.props.rss.data);
-    const placehold1 = "http://placehold.it/300x200";
-    const placehold2 = "http://placehold.it/300x400";
+    // const placehold1 = "http://placehold.it/300x200";
+    // const placehold2 = "http://placehold.it/300x400";
     return (
       <div className="col-xs-3 media-feeds">
 
         <div className="row">
-
+          <ul>
+            {this.renderList()}
+          </ul>
         </div>
 
         <div className="row">
