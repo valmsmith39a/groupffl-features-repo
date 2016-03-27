@@ -14,9 +14,8 @@
   });
 
   router.post('/', User.isLoggedIn, League.createMW, (req, res) => {
-    console.log('req.body: ', req.body);
     res.send(req.resData);
   });
-  
+
   module.exports = router;
 }());

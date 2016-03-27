@@ -28,8 +28,6 @@ export function loginUser(props) {
 
 export function createLeague(props) {
   const request = axios.post('/api/league', props);
-  console.log('create league action creator: ', props);
-  console.log(request);
 
   return {
     type:CREATE_LEAGUE,

@@ -52,8 +52,24 @@ class CreateLeague extends Component {
   }
 }
 
+function validate(values) {
+  const errors = {};
+
+  if(!values.name) {
+    errors.name = 'Enter a league name';
+  }
+  if(!values.leagueURL) {
+    errors.leagueURL = 'Enter a league URL';
+  }
+  if(!values.team) {
+    errors.team = 'Enter a team name';
+  }
+
+  return errors;
+}
+
 export default reduxForm ({
   form: 'CreateLeague',
   fields: ['name', 'leagueURL', 'team'],
-  //validate
+  validate
 }, null, { createLeague })(CreateLeague);

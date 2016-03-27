@@ -1,3 +1,13 @@
+/*
+
+Wires in redux-form higher order component
+Sets up mechanisms to obtain data from form
+Sets up input error handling
+Implements action creator to make PUT request to join a league
+Creates join league reducers to update application state
+
+*/
+
 import React, { Component } from 'react';
 
 export default class JoinLeague extends Component {
