@@ -13,7 +13,13 @@
     });
   });
 
+  // router.post('/', User.isLoggedIn, Team.createMW, (req, res) => {
+  //   console.log('team route')
+  //   res.send(req.resData);
+  // });
+
   router.post('/', User.isLoggedIn, Team.createMW, (req, res) => {
+    console.log('team route')
     res.send(req.resData);
   });
 

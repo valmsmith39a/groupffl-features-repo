@@ -38,14 +38,12 @@ export function createLeague(props) {
 }
 
 export function joinLeague(props) {
+  console.log('props in join league action is: ', props);
+  
   const request = axios.post(JOIN_LEAGUE_URL, props);
 
-  // return {
-  //   type: JOIN_LEAGUE;
-  //   payload: request
-  // }
   return {
     type: JOIN_LEAGUE,
-    payload: props
+    payload: request
   }
 }

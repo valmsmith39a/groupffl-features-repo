@@ -10,14 +10,19 @@ Creates join league reducers to update application state
 
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-// import { joinLeague } from '../actions/index';
+import { joinLeague } from '../actions/index';
 
 class JoinLeague extends Component {
   onSubmit(props) {
     console.log('on submit', props);
+    this.props.joinLeague(props)
+      .then((res) => {
+        console.log('res is: ', res);
+
+      });
   }
   render() {
-    const { fields: {league, name }, handleSubmit } = this.props;
+    const { fields: {leagueId, team }, handleSubmit } = this.props;
 
     return (
       <div className="col-xs-6 join-league-form">
@@ -26,28 +31,28 @@ class JoinLeague extends Component {
         <form
           onSubmit={handleSubmit(this.onSubmit.bind(this))}
           className="col-xs-10 col-xs-offset-1">
-          <div className={`form-group ${league.touched && league.invalid ? 'has-danger' : ''}`}>
+          <div className={`form-group ${leagueId.touched && leagueId.invalid ? 'has-danger' : ''}`}>
             <label>League Id</label>
             <input
               type="text"
               className="form-control"
               placeholder="Enter League Id"
-              {...league}
+              {...leagueId}
               />
               <div className="text-help">
-                {league.touched ? league.error : ''}
+                {leagueId.touched ? leagueId.error : ''}
               </div>
           </div>
-          <div className={`form-group ${name.touched && name.invalid ? 'has-danger' : ''}`}>
+          <div className={`form-group ${team.touched && team.invalid ? 'has-danger' : ''}`}>
             <label>Team Name</label>
             <input
-              type="password"
+              type="text"
               className="form-control"
               placeholder="Enter Team Name"
-              {...name}
+              {...team}
               />
               <div className="text-help">
-                {name.touched ? name.error : ''}
+                {team.touched ? team.error : ''}
               </div>
           </div>
           <button type="submit" className="btn btn-default">Join</button>
@@ -61,19 +66,18 @@ class JoinLeague extends Component {
 function validate(values) {
   const errors = {};
 
-  if(!values.league) {
-    errors.league = 'Enter a league ID';
+  if(!values.leagueId) {
+    errors.leagueId = 'Enter a league ID';
   }
 
-  if(!values.name) {
-    errors.name = 'Enter a team name';
+  if(!values.team) {
+    errors.team = 'Enter a team name';
   }
   return errors;
 }
 
-
 export default reduxForm ({
   form: 'JoinLeague',
-  fields: ['league', 'name'],
+  fields: ['leagueId', 'team'],
   validate
-}, null, null)(JoinLeague);
+}, null, { joinLeague })(JoinLeague);
