@@ -14,7 +14,7 @@ require('./style.scss');
 console.log('in index.js');
 
 const createStoreWithMiddleware = applyMiddleware(
-  Async
+  promise
 )(createStore);
 
 ReactDOM.render(

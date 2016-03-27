@@ -7,7 +7,7 @@ export default function(state = INITIAL_STATE, action) {
   case FETCH_RSS:
     console.log(action.payload);
 
-    return { rss: action.payload.data }
+    return { rss: action.payload }
   default:
     return state;
   }
