@@ -1,26 +1,53 @@
-import React, { Component } from 'react';
+/*
+Get the data from form and send create a league object in League database
 
-export default class CreateLeague extends Component {
+// Change to Container, link component to dispatcher
+// Connect to reduxForm higher order component
+// Post request to create a league
+
+*/
+import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
+// import { createLeague } from '../actions/index';
+// import { Link, browserHistory } from 'react-router';
+
+class CreateLeague extends Component {
+  onSubmit(props) {
+    console.log(props);
+
+  }
   render() {
+    const { fields: { leagueName, leagueURL, teamName }, handleSubmit } = this.props;
+
     return (
       <div className="col-xs-6 create-league-form">
         <h2 className="login-title">Create League</h2>
-        <form className="col-xs-10 col-xs-offset-1">
-          <div className="form-group">
+
+        <form
+          onSubmit={handleSubmit(this.onSubmit.bind(this))}
+          className="col-xs-10 col-xs-offset-1">
+          <div className={`form-group ${leagueName.touched && leagueName.invalid ? 'has-danger' : ''}`}>
             <label>League Name</label>
-            <input type="email" className="form-control" placeholder="Enter League Name" />
+            <input type="text" className="form-control" placeholder="Enter League Name" />
           </div>
           <div className="form-group">
             <label>Fantasy League Url</label>
-            <input type="email" className="form-control" placeholder="Enter The Url For Your Fantasy League" />
+            <input type="text" className="form-control" placeholder="Enter The Url For Your Fantasy League" />
           </div>
           <div className="form-group">
             <label>Team Name</label>
-            <input type="password" className="form-control" placeholder="Enter Team Name" />
+            <input type="text" className="form-control" placeholder="Enter Team Name" />
           </div>
           <button type="submit" className="btn btn-default">Create</button>
         </form>
+
       </div>
     );
   }
 }
+
+export default reduxForm ({
+  form: 'CreateLeague',
+  fields: ['leagueName', 'leageURL', 'teamName'],
+  //validate
+}, null, null)(CreateLeague);
