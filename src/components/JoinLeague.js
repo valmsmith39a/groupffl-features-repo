@@ -1,8 +1,8 @@
 /*
 
-Wires in redux-form higher order component
-Sets up mechanisms to obtain data from form
-Sets up input error handling
+Wires in redux-form higher order component DONE
+Sets up mechanisms to obtain data from form DONE
+Sets up input error handling DONE
 Implements action creator to make PUT request to join a league
 Creates join league reducers to update application state
 
