@@ -10,6 +10,7 @@ class MediaFeeds extends Component {
       //   console.log('resolved');
       //   console.log(response);
       // })
+      console.log(this.props);
   }
 
   render() {
