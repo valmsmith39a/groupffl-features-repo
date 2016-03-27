@@ -30,11 +30,11 @@ class CreateLeague extends Component {
             <label>League Name</label>
             <input type="text" className="form-control" placeholder="Enter League Name" />
           </div>
-          <div className="form-group">
+          <div className={`form-group ${leagueURL.touched && leagueURL.invalid ? 'has-danger' : ''}`}>
             <label>Fantasy League Url</label>
             <input type="text" className="form-control" placeholder="Enter The Url For Your Fantasy League" />
           </div>
-          <div className="form-group">
+          <div className={`form-group ${teamName.touched && teamName.invalid ? 'has-danger' : ''}`}>
             <label>Team Name</label>
             <input type="text" className="form-control" placeholder="Enter Team Name" />
           </div>
@@ -48,6 +48,6 @@ class CreateLeague extends Component {
 
 export default reduxForm ({
   form: 'CreateLeague',
-  fields: ['leagueName', 'leageURL', 'teamName'],
+  fields: ['leagueName', 'leagueURL', 'teamName'],
   //validate
 }, null, null)(CreateLeague);
