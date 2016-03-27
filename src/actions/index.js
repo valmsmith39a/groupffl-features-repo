@@ -6,7 +6,7 @@ export const CREATE_LEAGUE = 'CREATE_LEAGUE';
 
 const REGISTER_URL = '/api/user/register';
 const LOGIN_URL = '/api/user/login';
-//const CREATE_LEAGUE_URL = '/api/createleage';
+const CREATE_LEAGUE_URL = '/api/league';
 
 export function registerUser(props) {
   const request = axios.post(REGISTER_URL, { email: props.email, password: props.password })
@@ -19,7 +19,7 @@ export function registerUser(props) {
 
 export function loginUser(props) {
   const request = axios.post(LOGIN_URL, props);
-  console.log('props is: ', props);
+
   return {
     type:LOGIN_USER,
     payload: request
@@ -27,11 +27,12 @@ export function loginUser(props) {
 }
 
 export function createLeague(props) {
-  //const request = axios.post(CREATE_LEAGUE_URL, props);
-  console.log('props is: ', props);
-
+  const request = axios.post(CREATE_LEAGUE_URL, props);
+  console.log(props);
+  console.log(request);
+  
   return {
     type:CREATE_LEAGUE,
-    payload: props
+    payload: request
   }
 }

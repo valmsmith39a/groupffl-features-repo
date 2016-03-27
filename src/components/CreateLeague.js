@@ -6,7 +6,7 @@ Get the data from form and send create a league object in League database
 // Post request to create a league
 
 // Make post request
-// Validate input data 
+// Validate input data
 
 */
 import React, { Component } from 'react';
@@ -16,10 +16,9 @@ import { createLeague } from '../actions/index';
 
 class CreateLeague extends Component {
   onSubmit(props) {
-    console.log(props);
     this.props.createLeague(props)
-      .then((result) => {
-        console.log('create league successful', result);
+      .then((res) => {
+        console.log(res);
       })
   }
   render() {
