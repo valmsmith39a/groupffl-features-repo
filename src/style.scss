@@ -115,9 +115,23 @@ body {
 
 .media-feeds {
   height: 600px;
-  background-color: blue;
+  background-color: #f0f0f0;
 
-  .feeds {
-    margin-top: 40px;  
+  .media-rss {
+    height: 600px;
+    overflow: scroll;
+
+    ul {
+      padding-left: 0;
+      background-color: #f0f0f0;
+
+      h4 {
+        color: #d20000;
+      }
+
+      h6 {
+        color: #00316b;
+      }
+    }
   }
 }

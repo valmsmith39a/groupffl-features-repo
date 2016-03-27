@@ -18,7 +18,9 @@ class MediaFeeds extends Component {
         <li
           key={article.NewsID}
           className="list-group-item">
-          {article.Title}
+          <h4>{article.Title}</h4>
+          <h6>{article.Content}</h6>
+          <a href={article.Url}>Player Info</a>
         </li>
       );
     });
@@ -28,24 +30,32 @@ class MediaFeeds extends Component {
 
     if (!this.props.rss.data) {
       return (
-        <div>Loading...</div>
+        <div>Loading...
+        {/*
+        <div className="row">
+          <a className="twitter-timeline" href="https://twitter.com/hashtag/FantasyFootball" data-widget-id="713864014485282816">#FantasyFootball Tweets</a>
+        </div>
+        */}
+        </div>
       )
     }
     console.log(this.props.rss.data);
-    // const placehold1 = "http://placehold.it/300x200";
-    // const placehold2 = "http://placehold.it/300x400";
     return (
       <div className="col-xs-3 media-feeds">
 
         <div className="row">
-          <ul>
-            {this.renderList()}
-          </ul>
+          <div className="media-rss">
+            <ul>
+              {this.renderList()}
+            </ul>
+          </div>
         </div>
 
+        {/*
         <div className="row">
           <a className="twitter-timeline" href="https://twitter.com/hashtag/FantasyFootball" data-widget-id="713864014485282816">#FantasyFootball Tweets</a>
         </div>
+        */}
       </div>
     );
   }
