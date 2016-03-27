@@ -6,9 +6,7 @@ export const FETCH_RSS = 'FETCH_RSS';
 
 const REGISTER_URL = '/api/user/register';
 const LOGIN_URL = '/api/user/login';
-const RSS_URL_BACK = '/api/user/rss';
-const RSS_URL = 'https://api.fantasydata.net/nfl/v2/json/News';
-const POKE_URL = 'http://pokeapi.co/api/v2/pokemon/1/';
+const RSS_URL_BACK = '/api/feed/rss';
 
 export function registerUser(props) {
   const request = axios.post(REGISTER_URL, { email: props.email, password: props.password })
@@ -29,18 +27,8 @@ export function loginUser(props) {
 }
 
 export function fetchRSS() {
-  // const configs = axios.create({
-  // headers: {'Ocp-Apim-Subscription-Key': 'ff77733713e9497a8156473c5683ccfd'}
-  // });
-  //
-  // console.log(configs);
-  //
-  // const request = axios.get(RSS_URL, configs);
-  //
-  // console.log(request);
-
   const request = axios.get(RSS_URL_BACK);
-
+  
   return {
     type: FETCH_RSS,
     payload: request

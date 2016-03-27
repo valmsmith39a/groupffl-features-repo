@@ -15,7 +15,7 @@ export default function({ dispatch }) {
         // replace the promise with the response data
         console.log(response);
         console.log( action );
-        const newAction = { action, type: action.type, payload: response.data };
+        const newAction = { action, type: action.type, payload: response };
         dispatch(newAction);
       });
   }

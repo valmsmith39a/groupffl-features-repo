@@ -5,15 +5,14 @@ import * as actions from '../actions';
 
 class MediaFeeds extends Component {
   componentWillMount() {
-    this.props.fetchRSS();
-      // .then((response) => {
-      //   console.log('resolved');
-      //   console.log(response);
-      // })
-      console.log(this.props);
+    this.props.fetchRSS()
+      .then((response) => {
+        console.log('recieved fantasydata');
+      })
   }
 
   render() {
+    console.log(this.props.rss.data);
     const placehold1 = "http://placehold.it/300x200";
     const placehold2 = "http://placehold.it/300x400";
     return (
@@ -32,7 +31,7 @@ class MediaFeeds extends Component {
 }
 
 function mapStateToProps(state) {
-  return { rss: state.rss }
+  return { rss: state.rss.rss }
 }
 
 export default connect(mapStateToProps, actions)(MediaFeeds)
