@@ -1,15 +1,22 @@
 $blueish: #44FFFF;
 body {
   background: $blueish;
+  font-family: helvetica;
 }
 
 .navbar {
-    background-color: gray;
+    background-color: #fafafa;
     padding-bottom: 10px;
+    margin-bottom: 0;
     // min-width: 1000px;
     // width: 1000px;
 
   .navbar-title {
+    font-family: 'Oswald', sans-serif;
+
+    h2 {
+      text-transform: uppercase;
+    }
 
   }
 
@@ -99,12 +106,12 @@ body {
 
 .league-info {
   height: 600px;
-  background-color: gray;
+  background-color: #fcfcfc;
 }
 
 .posts {
   height: 600px;
-  background-color: green;
+  background-color: #fcfcfc;
 
   .post-area {
     width: 100%;
@@ -115,7 +122,7 @@ body {
 
 .media-feeds {
   height: 600px;
-  background-color: #f0f0f0;
+  background-color: #fcfcfc;
 
   .media-rss {
     height: 600px;
@@ -123,14 +130,25 @@ body {
 
     ul {
       padding-left: 0;
-      background-color: #f0f0f0;
+      background-color: #fcfcfc;
 
-      h4 {
+      li {
+        background-color: #fcfcfc;
+      }
+
+      h5 {
         color: #d20000;
+        font-family: 'Oswald', sans-serif;
       }
 
       h6 {
+        color: #333333;
+        line-height: 16px;
+      }
+
+      a {
         color: #00316b;
+        display: inline-block;
       }
     }
   }

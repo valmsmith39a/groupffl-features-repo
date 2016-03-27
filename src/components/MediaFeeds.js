@@ -18,9 +18,9 @@ class MediaFeeds extends Component {
         <li
           key={article.NewsID}
           className="list-group-item">
-          <h4>{article.Title}</h4>
-          <h6>{article.Content}</h6>
-          <a href={article.Url}>Player Info</a>
+          <h5>{article.Title}</h5>
+          <h6>{article.Content} <a href={article.Url} target="_blank"> More</a></h6>
+
         </li>
       );
     });
