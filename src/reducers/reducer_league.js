@@ -6,7 +6,7 @@ export default function (state = INITIAL_STATE, action) {
   switch(action.type) {
     case CREATE_LEAGUE:
       console.log(action.payload);
-      return { league: action.payload};
+      return { league: action.payload };
     default:
       return state;
   }
