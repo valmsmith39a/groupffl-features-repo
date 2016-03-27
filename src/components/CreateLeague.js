@@ -5,16 +5,22 @@ Get the data from form and send create a league object in League database
 // Connect to reduxForm higher order component
 // Post request to create a league
 
+// Make post request
+// Validate input data 
+
 */
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-// import { createLeague } from '../actions/index';
+import { createLeague } from '../actions/index';
 // import { Link, browserHistory } from 'react-router';
 
 class CreateLeague extends Component {
   onSubmit(props) {
     console.log(props);
-
+    this.props.createLeague(props)
+      .then((result) => {
+        console.log('create league successful', result);
+      })
   }
   render() {
     const { fields: { leagueName, leagueURL, teamName }, handleSubmit } = this.props;
@@ -62,4 +68,4 @@ export default reduxForm ({
   form: 'CreateLeague',
   fields: ['leagueName', 'leagueURL', 'teamName'],
   //validate
-}, null, null)(CreateLeague);
+}, null, { createLeague })(CreateLeague);
