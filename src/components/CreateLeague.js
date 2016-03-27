@@ -28,15 +28,27 @@ class CreateLeague extends Component {
           className="col-xs-10 col-xs-offset-1">
           <div className={`form-group ${leagueName.touched && leagueName.invalid ? 'has-danger' : ''}`}>
             <label>League Name</label>
-            <input type="text" className="form-control" placeholder="Enter League Name" />
+            <input type="text" className="form-control" placeholder="Enter League Name"
+            {...leagueName} />
+            <div className="text-help">
+              {leagueName.touched ? leagueName.error : ''}
+            </div>
           </div>
           <div className={`form-group ${leagueURL.touched && leagueURL.invalid ? 'has-danger' : ''}`}>
             <label>Fantasy League Url</label>
-            <input type="text" className="form-control" placeholder="Enter The Url For Your Fantasy League" />
+            <input type="text" className="form-control" placeholder="Enter The Url For Your Fantasy League"
+            {...leagueURL} />
+            <div className="text-help">
+              {leagueURL.touched ? leagueURL.error : ''}
+            </div>
           </div>
-          <div className={`form-group ${teamName.touched && teamName.invalid ? 'has-danger' : ''}`}>
+          <div className={`form-group ${leagueURL.touched && teamName.invalid ? 'has-danger' : ''}`}>
             <label>Team Name</label>
-            <input type="text" className="form-control" placeholder="Enter Team Name" />
+            <input type="text" className="form-control" placeholder="Enter Team Name"
+            {...teamName} />
+            <div className="text-help">
+              {teamName.touched ? teamName.error : ''}
+            </div>
           </div>
           <button type="submit" className="btn btn-default">Create</button>
         </form>
