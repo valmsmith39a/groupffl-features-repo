@@ -1,13 +1,3 @@
-/*
-
-Wires in redux-form higher order component DONE
-Sets up mechanisms to obtain data from form DONE
-Sets up input error handling DONE
-Implements action creator to make POST request to Team routes DONE
-Creates join league reducers to update application state
-
-*/
-
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { joinLeague } from '../actions/index';
