@@ -19,7 +19,7 @@ export default (
       <Route path="join" component={JoinLeague} />
       <Route path="create" component={CreateLeague} />
     </Route>
-    <Route path="/league" component={League}>
+    <Route path="/league/:id" component={League}>
       <IndexRoute component={Posts} />
     </Route>
   </div>

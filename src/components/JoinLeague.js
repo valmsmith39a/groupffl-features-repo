@@ -1,22 +1,73 @@
 import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
+import { joinLeague } from '../actions/index';
 
-export default class JoinLeague extends Component {
+class JoinLeague extends Component {
+  onSubmit(props) {
+    console.log('on submit', props);
+    this.props.joinLeague(props)
+      .then((res) => {
+        console.log('res is: ', res);
+
+      });
+  }
   render() {
+    const { fields: {leagueId, team }, handleSubmit } = this.props;
+
     return (
       <div className="col-xs-6 join-league-form">
         <h2 className="login-title">Join League</h2>
-        <form className="col-xs-10 col-xs-offset-1">
-          <div className="form-group">
+
+        <form
+          onSubmit={handleSubmit(this.onSubmit.bind(this))}
+          className="col-xs-10 col-xs-offset-1">
+          <div className={`form-group ${leagueId.touched && leagueId.invalid ? 'has-danger' : ''}`}>
             <label>League Id</label>
-            <input type="email" className="form-control" placeholder="Enter League Id" />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter League Id"
+              {...leagueId}
+              />
+              <div className="text-help">
+                {leagueId.touched ? leagueId.error : ''}
+              </div>
           </div>
-          <div className="form-group">
+          <div className={`form-group ${team.touched && team.invalid ? 'has-danger' : ''}`}>
             <label>Team Name</label>
-            <input type="password" className="form-control" placeholder="Enter Team Name" />
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Enter Team Name"
+              {...team}
+              />
+              <div className="text-help">
+                {team.touched ? team.error : ''}
+              </div>
           </div>
           <button type="submit" className="btn btn-default">Join</button>
         </form>
+
       </div>
     );
   }
 }
+
+function validate(values) {
+  const errors = {};
+
+  if(!values.leagueId) {
+    errors.leagueId = 'Enter a league ID';
+  }
+
+  if(!values.team) {
+    errors.team = 'Enter a team name';
+  }
+  return errors;
+}
+
+export default reduxForm ({
+  form: 'JoinLeague',
+  fields: ['leagueId', 'team'],
+  validate
+}, null, { joinLeague })(JoinLeague);
