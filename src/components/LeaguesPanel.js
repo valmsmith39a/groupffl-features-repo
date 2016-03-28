@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchLeagues } from '../actions/index'
 import { Link } from 'react-router';
 
 class LeaguesPanel extends Component {
-  renderList() {
-    /*
-    return this.props.leagues.map( (league) => {
+  componentWillMount() {
+    this.props.fetchLeagues();
+  }
 
+  renderList() {
+    return this.props.leagues.map((league) => {
+      return (
+        <li className="leagues-group-item" key={league._id}>
+          <Link to={"league/" + league._id}>
+            <span>{league.name}</span>
+          </Link>
+        </li>
+      )
     });
-    */
   }
 
   render() {
@@ -17,7 +26,7 @@ class LeaguesPanel extends Component {
         <h3>
           <Link to='/league'>My Leagues</Link>
         </h3>
-        <ul className='list-group'>
+        <ul className='leagues-group'>
           {this.renderList()}
         </ul>
        {/*
@@ -35,7 +44,10 @@ class LeaguesPanel extends Component {
 }
 
 function mapStateToProps(state) {
-  return { posts: state.leagues };
+  console.log('state is: ', state);
+  console.log('state.leagues.all is: ', state.league.all);
+
+  return { leagues: state.league.all };
 }
 
-export default connect(mapStateToProps, null)(LeaguesPanel);
+export default connect(mapStateToProps, { fetchLeagues })(LeaguesPanel);
