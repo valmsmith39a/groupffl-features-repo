@@ -6,6 +6,7 @@
   const bcrypt = require('bcrypt');
   const jwt = require('jwt-simple');
   const JWT_SECRET = process.env.JWT_SECRET;
+  const deepPopulate = require('mongoose-deep-populate')(mongoose);
 
   let userSchema = new mongoose.Schema({
     // username: { type: String, lowercase: true, trim: true, required: true },
@@ -14,6 +15,8 @@
     leagues: [{ type: mongoose.Schema.Types.ObjectId, ref: 'League' }],
     teams: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Team' }]
   });
+
+  userSchema.plugin(deepPopulate);
 
   // userSchema.statics.register = (req, res, next) => {
   //   if (!req.body.username || !req.body.email || !req.body.password || !req.body.verifyPassword) { return res.status(400).send('One or more fields left blank'); }
@@ -77,7 +80,7 @@
     });
   };
 
-  
+
 
   userSchema.statics.isLoggedIn = (req, res, next) => {
     if (!req.cookies.authToken) { return res.status(403).send('You must be logged in to perform this action (1)'); }
@@ -93,6 +96,46 @@
       return res.status(400).send(err);
     }
   };
+
+  // userSchema.statics.getUserLeaguesMW = (req, res, next) => {
+  //   User.findById(req.user, (err, user) => {
+  //     // TODO: error handling
+  //     console.log(user);
+  //     req.userLeagues = [];
+  //     req.userLeagues = user.leagues.map(league => {
+  //       var teamName = league.teams.filter(team => {
+  //         console.log('team', team)
+  //         return req.user == team;
+  //       });
+  //       console.log(teamName);
+  //       return {
+  //         leagueName: league.name,
+  //         teamName: teamName
+  //       };
+  //     });
+  //     console.log(req.userLeagues);
+  //     next();
+  //   }).deepPopulate('leagues.teams', function(err, post) {
+  //     console.log(post);
+  //   });
+  // }
+
+  userSchema.statics.getUserLeaguesMW = (req, res, next) => {
+    User.findById(req.user).deepPopulate('leagues.teams').exec( (err, user) => {
+      // TODO: error handling
+      req.userLeagues = [];
+      req.userLeagues = user.leagues.map(league => {
+        var teamObj = league.teams.filter(team => {
+          return team.owner.toString() == req.user.toString();
+        });
+        return {
+          leagueName: league.name,
+          teamName: teamObj[0].name
+        };
+      });
+      next();
+    })
+  }
 
   const User = mongoose.model('User', userSchema);
 

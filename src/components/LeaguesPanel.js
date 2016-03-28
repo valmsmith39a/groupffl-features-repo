@@ -9,6 +9,7 @@ class LeaguesPanel extends Component {
   }
 
   renderList() {
+    console.log(this.props.leagues);
     return this.props.leagues.map((league) => {
       return (
         <li className="leagues-group-item" key={league._id}>
