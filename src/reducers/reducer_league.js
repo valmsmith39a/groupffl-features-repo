@@ -7,7 +7,6 @@ export default function (state = INITIAL_STATE, action) {
   console.log('action.payload', action.payload);
   switch(action.type) {
     case FETCH_LEAGUES:
-      console.log(action.payload)
       //return { ...state, post: action.payload.data}
       return { all: action.payload.data };
     default:

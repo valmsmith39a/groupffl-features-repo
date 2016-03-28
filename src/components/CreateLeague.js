@@ -8,7 +8,7 @@ class CreateLeague extends Component {
   onSubmit(props) {
     this.props.createLeague(props)
       .then((res) => {
-        this.props.fetchLeagues();
+        // this.props.fetchLeagues();
       })
   }
   render() {

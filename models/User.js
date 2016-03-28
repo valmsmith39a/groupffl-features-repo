@@ -130,7 +130,8 @@
         });
         return {
           leagueName: league.name,
-          teamName: teamObj[0].name
+          teamName: teamObj[0].name,
+          _id: league._id
         };
       });
       next();

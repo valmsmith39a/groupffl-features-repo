@@ -16,7 +16,7 @@
 
   router.get('/', User.isLoggedIn, User.getUserLeaguesMW, (req, res) => {
     console.log('userLeagues', req.userLeagues);
-    res.send(req.resData);
+    res.send(req.userLeagues);
   });
 
   router.post('/', User.isLoggedIn, League.createMW, (req, res) => {

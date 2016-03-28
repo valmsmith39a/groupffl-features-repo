@@ -5,17 +5,28 @@ import { Link } from 'react-router';
 
 class LeaguesPanel extends Component {
   componentWillMount() {
-    this.props.fetchLeagues();
+    this.props.fetchLeagues()
+    .then((response) => {
+      console.log('fetched Leagues');
+    })
   }
 
   renderList() {
     console.log(this.props.leagues);
-    return this.props.leagues.map((league) => {
+    if(!this.props.leagues) {
       return (
-        <li className="leagues-group-item" key={league._id}>
-          <Link to={"league/" + league._id}>
-            <span>{league.name}</span>
-          </Link>
+        <div>Loading Leagues...</div>
+      )
+    }
+
+    return this.props.leagues.map((league) => {
+      console.log(league);
+      return (
+        <li className="leagues-group-item list-group-item" key={league._id}>
+          <h5><Link to={"league/" + league._id}>
+            <span>{league.leagueName}</span>
+          </Link></h5>
+          <h6>{league.teamName}</h6>
         </li>
       )
     });
@@ -25,7 +36,7 @@ class LeaguesPanel extends Component {
     return (
       <div className="col-xs-3 league-panel">
         <h3>
-          <Link to='/league'>My Leagues</Link>
+          My Leagues
         </h3>
         <ul className='leagues-group'>
           {this.renderList()}
