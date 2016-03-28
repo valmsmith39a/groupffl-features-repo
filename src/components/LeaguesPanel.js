@@ -29,14 +29,6 @@ class LeaguesPanel extends Component {
         <ul className='leagues-group'>
           {this.renderList()}
         </ul>
-       {/*
-        <h6>Lorem ipsum dolor sit.</h6>
-        <p>Lorem ipsum</p>
-        <h6>Lorem ipsum dolor sit.</h6>
-        <p>Lorem ipsum</p>
-        <h6>Lorem ipsum dolor sit.</h6>
-        <p>Lorem ipsum</p>
-      */}
       </div>
 
     )

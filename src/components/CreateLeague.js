@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { createLeague } from '../actions/index';
+import { fetchLeagues } from '../actions/index';
 // import { Link, browserHistory } from 'react-router';
 
 class CreateLeague extends Component {
   onSubmit(props) {
     this.props.createLeague(props)
       .then((res) => {
-        console.log(res);
+        this.props.fetchLeagues();
       })
   }
   render() {
@@ -72,4 +73,4 @@ export default reduxForm ({
   form: 'CreateLeague',
   fields: ['name', 'leagueURL', 'team'],
   validate
-}, null, { createLeague })(CreateLeague);
+}, null, { createLeague, fetchLeagues })(CreateLeague);
