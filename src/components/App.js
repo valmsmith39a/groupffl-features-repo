@@ -7,11 +7,13 @@ import LeaguesPanel from './LeaguesPanel';
 export default class App extends Component {
   render() {
     return (
-      <div className="container">
+      <div>
         <Navbar />
-        {this.props.children}
-        <JoinPanel />
-        <LeaguesPanel />
+        <div className="container">
+          {this.props.children}
+          <JoinPanel />
+          <LeaguesPanel />
+        </div>
       </div>
     )
   }
