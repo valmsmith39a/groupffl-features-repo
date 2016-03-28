@@ -19,7 +19,7 @@ class MediaFeeds extends Component {
           key={article.NewsID}
           className="list-group-item">
           <h5>{article.Title}</h5>
-          <h6>{article.Content} <a href={article.Url} target="_blank"> More</a></h6>
+          <h6>{article.Content} <strong><a href={article.Url} target="_blank"> More</a></strong></h6>
 
         </li>
       );
