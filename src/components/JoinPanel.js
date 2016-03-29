@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 class JoinPanel extends Component {
   handleClick() {
-    console.log('handle click');
     this.props.verifyLogin();
   }
 

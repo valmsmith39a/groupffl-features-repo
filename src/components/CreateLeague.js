@@ -4,6 +4,12 @@ import { createLeague } from '../actions/index';
 // import { Link, browserHistory } from 'react-router';
 
 class CreateLeague extends Component {
+  componentWillMount() {
+    if (!this.props.isLoggedIn) {
+      this.props.history.push('/login');
+    }
+  }
+
   onSubmit(props) {
     this.props.createLeague(props)
       .then((res) => {
@@ -66,6 +72,10 @@ function validate(values) {
   }
 
   return errors;
+}
+
+function mapStateToProps(state) {
+  return state.isLoggedIn;
 }
 
 export default reduxForm ({

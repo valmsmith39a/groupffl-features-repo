@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { joinLeague, verifyLogin } from '../actions/index';
-import Cookies from 'cookies-js';
+// import Cookies from 'cookies-js';
 import { Link, browserHistory } from 'react-router';
 
 class JoinLeague extends Component {
 
   componentWillMount() {
     if (!this.props.isLoggedIn) {
-        this.props.history.push('/');
-      }
+      this.props.history.push('/login');
+    }
   }
 
   onSubmit(props) {
@@ -76,8 +76,7 @@ function validate(values) {
 }
 
 function mapStateToProps(state) {
-  console.log('state', state);
-  return { isLoggedIn: state.isLoggedIn.isLoggedIn };
+  return state.isLoggedIn;
 }
 
 export default reduxForm ({

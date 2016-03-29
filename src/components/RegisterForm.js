@@ -5,6 +5,12 @@ import { Link, browserHistory } from 'react-router'; // Only for Cancel
 
 class RegisterForm extends Component {
 
+  componentWillMount() {
+    if (this.props.isLoggedIn) {
+      this.props.history.push('/');
+    }
+  }
+
   onSubmit(props) {
     console.log(props)
     this.props.registerUser(props)
@@ -84,8 +90,12 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps(state) {
+  return state.isLoggedIn;
+}
+
 export default reduxForm({
   form: 'RegisterForm',
   fields: ['email', 'password', 'password2'],
   validate
-}, null, { registerUser } )(RegisterForm);
+}, mapStateToProps, { registerUser } )(RegisterForm);
