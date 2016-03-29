@@ -16,9 +16,11 @@ class App extends Component {
       <div>
         <Navbar />
         <div className="container">
-          {this.props.children}
-          <JoinPanel />
-          <LeaguesPanel />
+          <div className="row">
+            {this.props.children}
+            <JoinPanel />
+            <LeaguesPanel />
+          </div>
         </div>
       </div>
     );

@@ -40,9 +40,17 @@ body {
   }
 }
 
-.media {
-  background-color: red;
-  margin: 0;
+.media-panel {
+  background-color: white;
+  margin-top: 25px;
+
+  h2 {
+
+  }
+
+  h4 {
+    padding-top: 20px;
+  }
 }
 
 .join-panel {
