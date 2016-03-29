@@ -40,15 +40,15 @@ body {
   }
 }
 
-.glyphicon {
-    font-size: 40px;
-    color: gray;
-}
-
 .media-panel {
   background-color: white;
   margin-top: 25px;
   padding-bottom: 25px;
+
+  .glyphicon {
+      font-size: 40px;
+      color: gray;
+  }
 
   h2 {
     padding-top: 20px;
@@ -98,13 +98,46 @@ body {
 
   .join-panel-buttons {
     width: 320px;
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     background-color: #f0f0f0;
     text-align: center;
-    padding: 20px;
     display: inline-block;
     color: #00316b;
+
+    .join-icons-panel {
+
+      padding: 20px;
+
+      .glyphicon {
+        font-size: 40px;
+        color: #00316b;
+      }
+
+      span {
+        padding-right: 10px;
+        vertical-align: middle;
+      }
+
+      .bold {
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: bold;
+        margin: 0;
+        font-family: 'Oswald', sans-serif;
+        padding-right: 10px;
+      }
+
+      h2 {
+        margin: 0;
+        font-family: 'Oswald', sans-serif;
+        text-transform: uppercase;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+    }
   }
+
 }
 
 .league-panel {
@@ -123,8 +156,13 @@ body {
         padding: 0;
       }
     }
-
 }
+
+.join-panel-buttons:hover {
+  background-color: #e6e6e6;
+}
+
+
 
 .login-form {
   background-color: lightgray;

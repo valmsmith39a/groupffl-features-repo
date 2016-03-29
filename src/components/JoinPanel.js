@@ -15,15 +15,21 @@ class JoinPanel extends Component {
         <Link to="/join"
           className="join-button join-panel-buttons"
           onClick={this.handleClick.bind(this)}>
-
-          Join League
-
+          <div className="join-icons-panel">
+            <span><Glyphicon glyph="plus" /></span>
+            <h2 className="bold">Join</h2>
+            <h2>a league</h2>
+          </div>
         </Link>
-
-
         <Link to="/create"
           className="create-button join-panel-buttons"
-          onClick={this.handleClick.bind(this)}>Create League</Link>
+          onClick={this.handleClick.bind(this)}>
+          <div className="join-icons-panel">
+            <span><Glyphicon glyph="plus" /></span>
+            <h2 className="bold">Create</h2>
+            <h2>a league</h2>
+          </div>
+        </Link>
       </div>
     );
   }
