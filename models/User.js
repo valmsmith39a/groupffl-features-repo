@@ -124,7 +124,7 @@
   userSchema.statics.getUserLeaguesMW = (req, res, next) => {
     User.findById(req.user).deepPopulate('leagues.teams').exec( (err, user) => {
       if (err) { return res.status(400).send(err); }
-      // TODO: error handling
+      req.userLeagues = [];
       req.userLeagues = user.leagues.map(league => {
         var teamObj = league.teams.filter(team => team.owner.toString() == req.user.toString());
         return {

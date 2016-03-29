@@ -28,19 +28,15 @@ class MediaFeeds extends Component {
 
     if (!this.props.rss.data) {
       return (
-        <div>Loading...
-        {/*
-        <div className="row">
-          <a className="twitter-timeline" href="https://twitter.com/hashtag/FantasyFootball" data-widget-id="713864014485282816">#FantasyFootball Tweets</a>
-        </div>
-        */}
+        <div>
+          {/*}<img src="../images/Football.gif" height="100px" width="100px" alt=""/>*/}
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Football.gif" alt=""/>
         </div>
       );
     }
     console.log(this.props.rss.data);
     return (
       <div className="col-xs-3 media-feeds">
-
         <div className="row">
           <div className="media-rss">
             <ul>
