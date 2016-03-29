@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
+import { verifyLogin } from '../actions/index';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 
-export default () => {
+class JoinPanel extends Component {
+  handleClick() {
+    console.log('handle click');
+    this.props.verifyLogin();
+  }
+
+  render() {
     return (
       <div className="col-xs-3 join-panel">
-          <Link to="/join" className="join-button join-panel-buttons">Join League</Link>
-          <Link to="/create" className="create-button join-panel-buttons">Create League</Link>
+          <Link to="/join"
+            className="join-button join-panel-buttons"
+            onClick={this.handleClick.bind(this)}>Join League</Link>
+          <Link to="/create"
+            className="create-button join-panel-buttons"
+            onClick={this.handleClick.bind(this)}>Create League</Link>
       </div>
     )
+  }
 }
+
+export default connect(null, { verifyLogin })(JoinPanel);

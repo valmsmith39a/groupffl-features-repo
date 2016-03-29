@@ -3,6 +3,7 @@ import RegisterReducer from './reducer_register_form';
 import LoginReducer from './reducer_login_form';
 import RSSReducer from './reducer_rss_feed';
 import LeagueReducer from './reducer_league';
+import AuthReducer from './reducer_authentication';
 
 
 import { reducer as formReducer } from 'redux-form';
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
   register: RegisterReducer,
   login: LoginReducer,
   rss: RSSReducer,
-  league: LeagueReducer
+  league: LeagueReducer,
+  isLoggedIn: AuthReducer
 });
 
 export default rootReducer;

@@ -53,9 +53,6 @@ class LeaguesPanel extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('state is: ', state);
-  console.log('state.leagues.all is: ', state.league.all);
-
   return { leagues: state.league.all };
 }
 
