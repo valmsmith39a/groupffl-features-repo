@@ -19,8 +19,9 @@
     res.send(req.userLeagues);
   });
 
-  router.post('/', User.isLoggedIn, League.createMW, (req, res) => {
-    res.send(req.resData);
+  router.post('/', User.isLoggedIn, League.createMW, User.getUserLeaguesMW, (req, res) => {
+    console.log('newLeague', req.userLeagues);
+    res.send(req.userLeagues);
   });
 
   module.exports = router;

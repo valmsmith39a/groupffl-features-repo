@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import { joinLeague } from '../actions/index';
+import { joinLeague, verifyLogin } from '../actions/index';
+import Cookies from 'cookies-js';
 
 class JoinLeague extends Component {
+  componentWillMount() {
+    // action to check for cookies.
+    this.props.verifyLogin();
+    // let res1 = Cookies.get('authToken');
+    // console.log('cookie', res1);
+  }
+
+
   onSubmit(props) {
     console.log('on submit', props);
     this.props.joinLeague(props)
@@ -70,4 +79,4 @@ export default reduxForm ({
   form: 'JoinLeague',
   fields: ['leagueId', 'team'],
   validate
-}, null, { joinLeague })(JoinLeague);
+}, null, { joinLeague, verifyLogin })(JoinLeague);

@@ -60,6 +60,15 @@ body {
   text-align: center;
   background-color: orange;
   height: 600px;
+
+    .leagues-group {
+      padding-left: 0;
+
+      .list-group-item {
+        padding: 0;
+      }
+    }
+
 }
 
 .login-form {

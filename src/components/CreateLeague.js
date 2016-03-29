@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { createLeague } from '../actions/index';
-import { fetchLeagues } from '../actions/index';
 // import { Link, browserHistory } from 'react-router';
 
 class CreateLeague extends Component {
@@ -73,4 +72,4 @@ export default reduxForm ({
   form: 'CreateLeague',
   fields: ['name', 'leagueURL', 'team'],
   validate
-}, null, { createLeague, fetchLeagues })(CreateLeague);
+}, null, { createLeague })(CreateLeague);
