@@ -3,7 +3,15 @@ import { reduxForm } from 'redux-form';
 import { loginUser } from '../actions/index';
 import { Link, browserHistory } from 'react-router';
 
+
+
 class LoginForm extends Component {
+
+  componentWillMount() {
+    if(this.props.isLoggedIn) {
+      this.props.history.push('/');
+    }
+  }
 
   onSubmit(props) {
     console.log('props: ', props);
@@ -13,8 +21,6 @@ class LoginForm extends Component {
         console.log('login successful');
       })
   }
-
-
 
   render() {
     const { fields: {email, password}, handleSubmit } = this.props;
@@ -69,8 +75,12 @@ function validate(values) {
   return errors;
 }
 
+function mapStateToProps(state) {
+  return state.isLoggedIn;
+}
+
 export default reduxForm({
   form: 'LoginForm',
   fields: ['email', 'password'],
   validate
-}, null, { loginUser })(LoginForm);
+}, mapStateToProps, { loginUser })(LoginForm);

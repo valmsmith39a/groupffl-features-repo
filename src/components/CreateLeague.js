@@ -82,4 +82,4 @@ export default reduxForm ({
   form: 'CreateLeague',
   fields: ['name', 'leagueURL', 'team'],
   validate
-}, null, { createLeague })(CreateLeague);
+}, mapStateToProps, { createLeague })(CreateLeague);
