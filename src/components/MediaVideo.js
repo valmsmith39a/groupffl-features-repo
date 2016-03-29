@@ -6,7 +6,7 @@ export default class MediaVideo extends Component {
     return (
       <div className="col-xs-6 media-panel">
         <div>
-          <h2>Connect with friends and the football world around you on GroupFFL.</h2>
+          <h2>Connect with friends and the football world around you with GroupFFL.</h2>
           <div className="icons-panel">
             <span><Glyphicon glyph="comment" /></span>
             <h4 className="bold">Talk fantasy football</h4>
@@ -23,7 +23,7 @@ export default class MediaVideo extends Component {
             <h4>of what you've been missing.</h4>
           </div>
         </div>
-        <iframe width="90%" height="320px" src="https://www.youtube.com/embed/Y_NmwtttzA8" frameborder="0" allowfullscreen></iframe>
+        <iframe width="90%" height="280px" src="https://www.youtube.com/embed/Y_NmwtttzA8" frameborder="0" allowfullscreen></iframe>
       </div>
     );
   }
