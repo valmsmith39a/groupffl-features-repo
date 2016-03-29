@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { joinLeague, verifyLogin } from '../actions/index';
 // import Cookies from 'cookies-js';
-import { Link, browserHistory } from 'react-router';
+// import { Link, browserHistory } from 'react-router';
 
 class JoinLeague extends Component {
 
@@ -15,13 +15,13 @@ class JoinLeague extends Component {
   onSubmit(props) {
     console.log('on submit', props);
     this.props.joinLeague(props)
-      .then((res) => {
+      .then(res => {
         console.log('res is: ', res);
 
       });
   }
   render() {
-    const { fields: {leagueId, team }, handleSubmit } = this.props;
+    const { fields: { leagueId, team }, handleSubmit } = this.props;
 
     return (
       <div className="col-xs-6 join-league-form">
@@ -65,11 +65,11 @@ class JoinLeague extends Component {
 function validate(values) {
   const errors = {};
 
-  if(!values.leagueId) {
+  if (!values.leagueId) {
     errors.leagueId = 'Enter a league ID';
   }
 
-  if(!values.team) {
+  if (!values.team) {
     errors.team = 'Enter a team name';
   }
   return errors;
@@ -79,7 +79,7 @@ function mapStateToProps(state) {
   return state.isLoggedIn;
 }
 
-export default reduxForm ({
+export default reduxForm({
   form: 'JoinLeague',
   fields: ['leagueId', 'team'],
   validate

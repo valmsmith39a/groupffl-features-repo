@@ -7,7 +7,7 @@ import reducers from './reducers';
 import routes from './routes';
 import promise from 'redux-promise';
 
-import Async from './middlewares/async';
+// import Async from './middlewares/async';
 
 require('./style.scss');
 

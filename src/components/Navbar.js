@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { verifyLogin, logoutUser } from '../actions/index';
+import { verifyLogin } from '../actions/index';
 import Cookies from 'cookies-js';
 
 class Navbar extends Component {
@@ -20,7 +20,7 @@ class Navbar extends Component {
   }
 
   renderNavButtons() {
-    if(!this.props.isLoggedIn) {
+    if (!this.props.isLoggedIn) {
       return (
         <div>
           <Link to="/register"
@@ -30,7 +30,7 @@ class Navbar extends Component {
             className="btn btn-primary navbar-login"
             onClick={this.handleClick.bind(this)}> Login</Link>
         </div>
-      )
+      );
     } else {
       return (
         <div>
@@ -38,7 +38,7 @@ class Navbar extends Component {
             className="btn btn-primary navbar-logout"
             onClick={this.logoutClick.bind(this)}>Logout</Link>
         </div>
-      )
+      );
     }
   }
 
@@ -59,7 +59,7 @@ class Navbar extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { registerUser } from '../actions/index';
-import { Link, browserHistory } from 'react-router'; // Only for Cancel
+// import { Link, browserHistory } from 'react-router'; // Only for Cancel
 
 class RegisterForm extends Component {
 
   componentWillMount() {
     if (this.props.isLoggedIn) {
-      
+
       this.props.history.push('/');
     }
   }
 
   onSubmit(props) {
-    console.log(props)
+    console.log(props);
     this.props.registerUser(props)
       .then(() => {
         this.props.history.push('/login');
         console.log('resolved');
-      })
+      });
   }
 
   render() {
-    const { fields: { email, password, password2}, handleSubmit } = this.props;
+    const { fields: { email, password, password2 }, handleSubmit } = this.props;
 
     return (
       <div className="col-xs-6 register-form">
@@ -86,7 +86,7 @@ function validate(values) {
   }
 
   if (values.password !== values.password2) {
-    errors.password2 = 'Passwords Do Not Match'
+    errors.password2 = 'Passwords Do Not Match';
   }
   return errors;
 }

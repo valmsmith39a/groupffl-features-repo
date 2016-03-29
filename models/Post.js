@@ -6,8 +6,9 @@
     author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
     league: { type: mongoose.Schema.Types.ObjectId, ref: 'League', required: true },
-    title: { type: String, required: true },
-    description: { type: String, maxlength: 30000, required: true }
+    // title: { type: String, required: true },
+    description: { type: String, maxlength: 30000, required: true },
+    date: { type: Date, default: Date.now() }
   });
 
   postSchema.statics.createMW = (req, res, next) => {

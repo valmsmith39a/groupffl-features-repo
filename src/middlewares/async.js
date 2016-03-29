@@ -18,5 +18,5 @@ export default function({ dispatch }) {
         const newAction = { action, type: action.type, payload: response };
         dispatch(newAction);
       });
-  }
+  };
 }

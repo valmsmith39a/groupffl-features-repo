@@ -9,6 +9,6 @@ export default class Posts extends Component {
           <button className="btn btn-primary pull-right">POST</button>
         </div>
       </div>
-    )
+    );
   }
 }

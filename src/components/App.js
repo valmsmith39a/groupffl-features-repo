@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { verifyLogin } from '../actions/index';
 
-import Navbar from './Navbar';
 import JoinPanel from './JoinPanel';
 import LeaguesPanel from './LeaguesPanel';
+import Navbar from './Navbar';
 
 class App extends Component {
   componentWillMount() {
@@ -21,7 +21,7 @@ class App extends Component {
           <LeaguesPanel />
         </div>
       </div>
-    )
+    );
   }
 }
 

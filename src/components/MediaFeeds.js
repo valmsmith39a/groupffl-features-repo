@@ -6,24 +6,22 @@ import * as actions from '../actions';
 class MediaFeeds extends Component {
   componentWillMount() {
     this.props.fetchRSS()
-      .then((response) => {
+      .then(() => {
         console.log('recieved fantasydata');
-      })
+      });
   }
 
   renderList() {
-    console.log(this.props.rss)
-    return this.props.rss.data.map(article => {
-      return (
-        <li
-          key={article.NewsID}
-          className="list-group-item">
-          <h5>{article.Title}</h5>
-          <h6>{article.Content} <strong><a href={article.Url} target="_blank"> More</a></strong></h6>
+    console.log(this.props.rss);
+    return this.props.rss.data.map(article =>
+      <li
+        key={article.NewsID}
+        className="list-group-item">
+        <h5>{article.Title}</h5>
+        <h6>{article.Content} <strong><a href={article.Url} target="_blank"> More</a></strong></h6>
 
-        </li>
-      );
-    });
+      </li>
+    );
   }
 
   render() {
@@ -37,7 +35,7 @@ class MediaFeeds extends Component {
         </div>
         */}
         </div>
-      )
+      );
     }
     console.log(this.props.rss.data);
     return (
@@ -62,7 +60,7 @@ class MediaFeeds extends Component {
 }
 
 function mapStateToProps(state) {
-  return { rss: state.rss.rss }
+  return { rss: state.rss.rss };
 }
 
-export default connect(mapStateToProps, actions)(MediaFeeds)
+export default connect(mapStateToProps, actions)(MediaFeeds);

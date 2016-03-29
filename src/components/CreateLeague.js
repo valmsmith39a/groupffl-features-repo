@@ -13,9 +13,7 @@ class CreateLeague extends Component {
 
   onSubmit(props) {
     this.props.createLeague(props)
-      .then((res) => {
-        // this.props.fetchLeagues();
-      })
+      .then(() => true/* this.props.fetchLeagues(); */);
   }
   render() {
     const { fields: { name, leagueURL, team }, handleSubmit } = this.props;
@@ -62,13 +60,13 @@ class CreateLeague extends Component {
 function validate(values) {
   const errors = {};
 
-  if(!values.name) {
+  if (!values.name) {
     errors.name = 'Enter a league name';
   }
-  if(!values.leagueURL) {
+  if (!values.leagueURL) {
     errors.leagueURL = 'Enter a league URL';
   }
-  if(!values.team) {
+  if (!values.team) {
     errors.team = 'Enter a team name';
   }
 
@@ -79,7 +77,7 @@ function mapStateToProps(state) {
   return state.isLoggedIn;
 }
 
-export default reduxForm ({
+export default reduxForm({
   form: 'CreateLeague',
   fields: ['name', 'leagueURL', 'team'],
   validate

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { loginUser, verifyLogin } from '../actions/index';
-import { Link, browserHistory } from 'react-router';
+// import { Link, browserHistory } from 'react-router';
 
 
 
 class LoginForm extends Component {
 
   componentWillMount() {
-    if(this.props.isLoggedIn) {
+    if (this.props.isLoggedIn) {
       this.props.history.push('/');
     }
   }
@@ -20,11 +20,11 @@ class LoginForm extends Component {
         this.props.verifyLogin();
         this.props.history.push('/');
         console.log('login successful');
-      })
+      });
   }
 
   render() {
-    const { fields: {email, password}, handleSubmit } = this.props;
+    const { fields: { email, password }, handleSubmit } = this.props;
 
     return (
 
@@ -65,11 +65,11 @@ class LoginForm extends Component {
 function validate(values) {
   const errors = {};
 
-  if(!values.email) {
+  if (!values.email) {
     errors.email = 'Enter an email';
   }
 
-  if(!values.password) {
+  if (!values.password) {
     errors.password = 'Enter a password';
   }
 

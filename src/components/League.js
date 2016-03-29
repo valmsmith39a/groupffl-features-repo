@@ -17,6 +17,6 @@ export default class League extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

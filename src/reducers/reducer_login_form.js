@@ -1,12 +1,12 @@
 import { LOGIN_USER } from '../actions/index';
 
-const INITIAL_STATE = { login: null }
+const INITIAL_STATE = { login: null };
 
 export default function(state = INITIAL_STATE, action) {
-  switch(action.type) {
+  switch (action.type) {
     case LOGIN_USER:
-      return { login: action.payload}
-  default:
-    return state;
+      return { login: action.payload };
+    default:
+      return state;
   }
 }

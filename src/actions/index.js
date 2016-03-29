@@ -13,7 +13,6 @@ export const VERIFY_LOGIN = 'VERIFY_LOGIN';
 
 const REGISTER_URL = '/api/user/register';
 const LOGIN_URL = '/api/user/login';
-const LOGOUT_URL = '/api/user/logout';
 
 const RSS_URL_BACK = '/api/feed/rss';
 const CREATE_LEAGUE_URL = '/api/league';
@@ -21,7 +20,7 @@ const JOIN_LEAGUE_URL = '/api/team';
 const FETCH_LEAGUES_URL = '/api/league';
 
 export function registerUser(props) {
-  const request = axios.post(REGISTER_URL, { email: props.email, password: props.password })
+  const request = axios.post(REGISTER_URL, { email: props.email, password: props.password });
 
   return {
     type: REGISTER_USER,
@@ -35,7 +34,7 @@ export function loginUser(props) {
   return {
     type: LOGIN_USER,
     payload: request
-  }
+  };
 }
 
 export function logoutUser() {
@@ -43,7 +42,7 @@ export function logoutUser() {
   return {
     type: LOGOUT_USER,
     payload: null
-  }
+  };
 }
 
 export function createLeague(props) {
@@ -52,7 +51,7 @@ export function createLeague(props) {
   return {
     type: CREATE_LEAGUE,
     payload: request
-  }
+  };
 }
 
 export function joinLeague(props) {
@@ -61,7 +60,7 @@ export function joinLeague(props) {
   return {
     type: JOIN_LEAGUE,
     payload: request
-  }
+  };
 }
 
 export function fetchRSS() {
@@ -70,23 +69,23 @@ export function fetchRSS() {
   return {
     type: FETCH_RSS,
     payload: request
-  }
+  };
 }
 
-export function fetchLeagues(props) {
-    const request = axios.get(FETCH_LEAGUES_URL);
+export function fetchLeagues() {
+  const request = axios.get(FETCH_LEAGUES_URL);
 
-    return {
-      type: FETCH_LEAGUES,
-      payload: request
-    }
+  return {
+    type: FETCH_LEAGUES,
+    payload: request
+  };
 }
 
 export function verifyLogin() {
-  const cookie = (Cookies.get('authToken')) ? true : false;
+  const cookie = Cookies.get('authToken') ? true : false;
   console.log(cookie);
   return {
     type: VERIFY_LOGIN,
     payload: cookie
-  }
+  };
 }

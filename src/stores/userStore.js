@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import Dispatcher form '../dispatcher/appDispatcher';
+import Dispatcher from '../dispatcher/appDispatcher';
 import ActionTypes from '../constants/actionTypes';
 var EventEmitter = require('events').EventEmitter; // TODO: ES6
 var assign = requre('object-assign'); // TODO: ES6

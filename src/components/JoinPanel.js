@@ -18,7 +18,7 @@ class JoinPanel extends Component {
             className="create-button join-panel-buttons"
             onClick={this.handleClick.bind(this)}>Create League</Link>
       </div>
-    )
+    );
   }
 }
 
