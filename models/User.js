@@ -83,6 +83,7 @@
 
 
   userSchema.statics.isLoggedIn = (req, res, next) => {
+    console.log('cookie', req.cookies.authToken);
     if (!req.cookies.authToken) { return res.status(403).send('You must be logged in to perform this action (1)'); }
     try {
       let userData = jwt.decode(req.cookies.authToken, JWT_SECRET);

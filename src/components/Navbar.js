@@ -15,7 +15,7 @@ class Navbar extends Component {
 
   logoutClick() {
     // this.props.logoutUser();
-    Cookies.set('authToken', undefined);
+    Cookies.expire('authToken');
     this.props.verifyLogin();
   }
 

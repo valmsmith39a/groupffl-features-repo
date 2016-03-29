@@ -11,10 +11,29 @@ class LeaguesPanel extends Component {
       })
   }
 
+  componentWillUpdate() {
+    if (typeof this.props.leagues == 'string') {
+      this.props.fetchLeagues()
+        .then((response) => {
+          console.log('fetched Leagues');
+        })
+    }
+  }
+
   renderList() {
-    if(!this.props.leagues) {
+
+    console.log('login is: ', this.props.isLoggedIn);
+    console.log('leagues is: ', this.props.leagues);
+
+    if(!this.props.isLoggedIn) {
       return (
-        <div>Loading Leagues...</div>
+        <div> Please log in </div>
+      )
+    }
+
+    if(this.props.leagues.length == 0) {
+      return (
+        <div>No Leagues</div>
       )
     }
 
@@ -23,7 +42,6 @@ class LeaguesPanel extends Component {
         <div>Please Log In</div>
       )
     }
-
 
     return this.props.leagues.map((league) => {
       return (
@@ -53,7 +71,10 @@ class LeaguesPanel extends Component {
 }
 
 function mapStateToProps(state) {
-  return { leagues: state.league.all };
+  return {
+    leagues: state.league.all,
+    isLoggedIn: state.isLoggedIn.isLoggedIn
+  };
 }
 
 export default connect(mapStateToProps, { fetchLeagues })(LeaguesPanel);
