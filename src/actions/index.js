@@ -3,6 +3,8 @@ import Cookies from 'cookies-js';
 
 export const REGISTER_USER = 'REGISTER_USER';
 export const LOGIN_USER = 'LOGIN_USER';
+export const LOGOUT_USER = 'LOGOUT_USER';
+
 export const FETCH_RSS = 'FETCH_RSS';
 export const CREATE_LEAGUE = 'CREATE_LEAGUE';
 export const JOIN_LEAGUE = 'JOIN_LEAGUE';
@@ -11,6 +13,8 @@ export const VERIFY_LOGIN = 'VERIFY_LOGIN';
 
 const REGISTER_URL = '/api/user/register';
 const LOGIN_URL = '/api/user/login';
+const LOGOUT_URL = '/api/user/logout';
+
 const RSS_URL_BACK = '/api/feed/rss';
 const CREATE_LEAGUE_URL = '/api/league';
 const JOIN_LEAGUE_URL = '/api/team';
@@ -32,6 +36,16 @@ export function loginUser(props) {
     type: LOGIN_USER,
     payload: request
   }
+}
+
+export function logoutUser() {
+  const request = axios.get(LOGOUT_URL);
+  /*
+  return {
+    type: LOGOUT_URL,
+    payload: request
+  }
+  */
 }
 
 export function createLeague(props) {

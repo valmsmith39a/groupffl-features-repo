@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { verifyLogin } from '../actions/index';
+import { verifyLogin, logoutUser } from '../actions/index';
+import Cookies from 'cookies-js';
 
 class Navbar extends Component {
   componentWillMount() {
@@ -9,8 +10,36 @@ class Navbar extends Component {
   }
 
   handleClick() {
-    console.log('nav me');
     this.props.verifyLogin();
+  }
+
+  logoutClick() {
+    // this.props.logoutUser();
+    Cookies.set('authToken', undefined);
+    this.props.verifyLogin();
+  }
+
+  renderNavButtons() {
+    if(!this.props.isLoggedIn) {
+      return (
+        <div>
+          <Link to="/register"
+            className="btn btn-primary navbar-register"
+            onClick={this.handleClick.bind(this)}> Register</Link>
+          <Link to="/login"
+            className="btn btn-primary navbar-login"
+            onClick={this.handleClick.bind(this)}> Login</Link>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Link to="/"
+            className="btn btn-primary navbar-logout"
+            onClick={this.logoutClick.bind(this)}>Logout</Link>
+        </div>
+      )
+    }
   }
 
   render() {
@@ -23,12 +52,7 @@ class Navbar extends Component {
             </h3>
           </div>
           <div className="pull-right navbar-buttons">
-            <Link to="/register"
-              className="btn btn-primary navbar-register"
-              onClick={this.handleClick.bind(this)}> Register</Link>
-            <Link to="/login"
-              className="btn btn-primary navbar-login"
-              onClick={this.handleClick.bind(this)}> Login</Link>
+            {this.renderNavButtons()}
           </div>
           <div className="text-center navbar-title">
             <h2>This Is A Super Awesome Title</h2>
@@ -39,4 +63,8 @@ class Navbar extends Component {
   }
 }
 
-export default connect(null, { verifyLogin })(Navbar);
+function mapStateToProps(state) {
+  return state.isLoggedIn;
+}
+
+export default connect(mapStateToProps, { verifyLogin })(Navbar);

@@ -13,5 +13,10 @@
     res.send('Welcome back!');
   });
 
+  router.get('/logout', (req, res) => {
+    console.log('logout');
+    res.clearCookie('authToken').redirect('/');
+  });
+
   module.exports = router;
 }());

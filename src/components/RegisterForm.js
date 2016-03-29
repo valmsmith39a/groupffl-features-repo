@@ -7,6 +7,7 @@ class RegisterForm extends Component {
 
   componentWillMount() {
     if (this.props.isLoggedIn) {
+      
       this.props.history.push('/');
     }
   }

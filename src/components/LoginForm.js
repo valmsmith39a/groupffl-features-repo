@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import { loginUser } from '../actions/index';
+import { loginUser, verifyLogin } from '../actions/index';
 import { Link, browserHistory } from 'react-router';
 
 
@@ -17,6 +17,7 @@ class LoginForm extends Component {
     console.log('props: ', props);
     this.props.loginUser(props)
       .then(() => {
+        this.props.verifyLogin();
         this.props.history.push('/');
         console.log('login successful');
       })
@@ -83,4 +84,4 @@ export default reduxForm({
   form: 'LoginForm',
   fields: ['email', 'password'],
   validate
-}, mapStateToProps, { loginUser })(LoginForm);
+}, mapStateToProps, { loginUser, verifyLogin })(LoginForm);
