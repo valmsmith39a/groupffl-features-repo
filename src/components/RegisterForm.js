@@ -25,7 +25,7 @@ class RegisterForm extends Component {
     const { fields: { email, password, password2 }, handleSubmit } = this.props;
 
     return (
-      <div className="col-xs-6 register-form">
+      <div className="register-form">
         <h2 className="login-title">Register</h2>
 
         <form

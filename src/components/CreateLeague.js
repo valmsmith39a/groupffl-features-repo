@@ -19,7 +19,7 @@ class CreateLeague extends Component {
     const { fields: { name, leagueURL, team }, handleSubmit } = this.props;
 
     return (
-      <div className="col-xs-6 create-league-form">
+      <div className="create-league-form">
         <h2 className="login-title">Create League</h2>
 
         <form

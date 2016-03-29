@@ -24,7 +24,7 @@ class JoinLeague extends Component {
     const { fields: { leagueId, team }, handleSubmit } = this.props;
 
     return (
-      <div className="col-xs-6 join-league-form">
+      <div className="join-league-form">
         <h2 className="login-title">Join League</h2>
 
         <form

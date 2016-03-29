@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { verifyLogin } from '../actions/index';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { Glyphicon } from 'react-bootstrap';
 
 class JoinPanel extends Component {
   handleClick() {
@@ -10,13 +11,19 @@ class JoinPanel extends Component {
 
   render() {
     return (
-      <div className="col-xs-3 join-panel">
-          <Link to="/join"
-            className="join-button join-panel-buttons"
-            onClick={this.handleClick.bind(this)}>Join League</Link>
-          <Link to="/create"
-            className="create-button join-panel-buttons"
-            onClick={this.handleClick.bind(this)}>Create League</Link>
+      <div className="join-panel">
+        <Link to="/join"
+          className="join-button join-panel-buttons"
+          onClick={this.handleClick.bind(this)}>
+
+          Join League
+
+        </Link>
+
+
+        <Link to="/create"
+          className="create-button join-panel-buttons"
+          onClick={this.handleClick.bind(this)}>Create League</Link>
       </div>
     );
   }

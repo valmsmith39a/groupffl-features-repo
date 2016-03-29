@@ -17,9 +17,13 @@ class App extends Component {
         <Navbar />
         <div className="container">
           <div className="row">
-            {this.props.children}
-            <JoinPanel />
-            <LeaguesPanel />
+            <div className="col-xs-8">
+              {this.props.children}
+            </div>
+            <div className="col-xs-4">
+              <JoinPanel />
+              <LeaguesPanel />
+            </div>
           </div>
         </div>
       </div>

@@ -4,13 +4,13 @@ import { Glyphicon } from 'react-bootstrap';
 export default class MediaVideo extends Component {
   render() {
     return (
-      <div className="col-xs-6 media-panel">
+      <div className="media-panel">
         <div>
           <h2>Connect with friends and the football world around you with GroupFFL.</h2>
           <div className="icons-panel">
             <span><Glyphicon glyph="comment" /></span>
             <h4 className="bold">Talk fantasy football</h4>
-            <h4>with friends.</h4>
+            <h4>with friends on your league timeline.</h4>
           </div>
           <div className="icons-panel">
             <span><Glyphicon glyph="bullhorn" /></span>
@@ -23,7 +23,7 @@ export default class MediaVideo extends Component {
             <h4>of what you've been missing.</h4>
           </div>
         </div>
-        <iframe width="90%" height="280px" src="https://www.youtube.com/embed/Y_NmwtttzA8" frameborder="0" allowfullscreen></iframe>
+        <iframe width="84%" height="320px" src="https://www.youtube.com/embed/Y_NmwtttzA8" frameborder="0" allowfullscreen></iframe>
       </div>
     );
   }

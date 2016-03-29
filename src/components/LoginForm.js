@@ -28,7 +28,7 @@ class LoginForm extends Component {
 
     return (
 
-      <div className="col-xs-6 login-form">
+      <div className="login-form">
         <h2 className="login-title">Login</h2>
         <form
           onSubmit={handleSubmit(this.onSubmit.bind(this))}

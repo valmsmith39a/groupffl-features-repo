@@ -55,7 +55,7 @@ class LeaguesPanel extends Component {
 
   render() {
     return (
-      <div className="col-xs-3 league-panel">
+      <div className="league-panel">
         <h3>
           My Leagues
         </h3>
