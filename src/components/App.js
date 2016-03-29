@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { verifyLogin } from '../actions/index';
 
 import Navbar from './Navbar';
 import JoinPanel from './JoinPanel';
 import LeaguesPanel from './LeaguesPanel';
 
-export default class App extends Component {
+class App extends Component {
+  componentWillMount() {
+    this.props.verifyLogin();
+  }
+
   render() {
     return (
       <div>
@@ -18,3 +24,9 @@ export default class App extends Component {
     )
   }
 }
+
+function mapStateToProps(state) {
+  return state.isLoggedIn;
+}
+
+export default connect(mapStateToProps, { verifyLogin })(App);

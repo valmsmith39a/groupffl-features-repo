@@ -1,4 +1,4 @@
-import { VERIFY_LOGIN } from '../actions/index';
+import { VERIFY_LOGIN, LOGOUT_USER } from '../actions/index';
 
 const INITIAL_STATE = { isLoggedIn: null };
 

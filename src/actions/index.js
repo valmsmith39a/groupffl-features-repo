@@ -39,13 +39,11 @@ export function loginUser(props) {
 }
 
 export function logoutUser() {
-  const request = axios.get(LOGOUT_URL);
-  /*
+  // const request = axios.get(LOGOUT_URL);
   return {
-    type: LOGOUT_URL,
-    payload: request
+    type: LOGOUT_USER,
+    payload: null
   }
-  */
 }
 
 export function createLeague(props) {
