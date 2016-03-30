@@ -176,13 +176,12 @@ body {
   overflow: scroll;
 
   h3 {
-    background-color: white;
-    color: #00316b;
-
+    background-color: #00316b;
+    color: #f0f0f0;
     text-transform: uppercase;
-    font-family: helvetica;
-    margin-top: 0;
     text-align: center;
+    margin-top: 0px;
+    padding: 16px;
   }
 
   .leagues-group {
@@ -194,9 +193,11 @@ body {
       background-color: #f0f0f0;
       padding-right: 10px;
       padding-left: 40px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 10px;
       vertical-align: middle;
-      margin-left:20px;
-      margin-right:20px;
+
     }
   }
 }
