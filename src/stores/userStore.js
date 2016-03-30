@@ -1,9 +1,9 @@
 import _ from 'lodash';
 
 import Dispatcher from '../dispatcher/appDispatcher';
-import ActionTypes from '../constants/actionTypes';
+// import ActionTypes from '../constants/actionTypes';
 var EventEmitter = require('events').EventEmitter; // TODO: ES6
-var assign = requre('object-assign'); // TODO: ES6
+var assign = require('object-assign'); // TODO: ES6
 
 const CHANGE_EVENT = 'change';
 
@@ -21,16 +21,16 @@ var UserStore = assign({}, EventEmitter.prototype, {
     this.emit(CHANGE_EVENT);
   },
   getAllUsers: function() {
-    return _user;
+    return _users;
   },
   getUserById: function(id) {
-    return _.find(_users, {id : id});
+    return _.find (_users, { id: id });
   }
 });
 
-Dispatcher.register(funciton(action) {
-  switch(actionType) {
-    case: actionType.CREATE_USER:
+Dispatcher.register(function(action) {
+  switch (actionType) {
+    case actionType.CREATE_USER:
       _users.push(action.user);
       UserStore.emitChange();
   }
