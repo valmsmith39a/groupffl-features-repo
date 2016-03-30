@@ -6,8 +6,8 @@ import { Link } from 'react-router';
 class LeaguesPanel extends Component {
   componentWillMount() {
     this.props.fetchLeagues()
-      .then(() => {
-        console.log('fetched Leagues');
+      .then((res) => {
+        console.log('fetched Leagues', res);
       });
   }
 
