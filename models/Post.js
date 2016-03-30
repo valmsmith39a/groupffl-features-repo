@@ -12,8 +12,8 @@
   });
 
   postSchema.statics.createMW = (req, res, next) => {
-    if (!req.body.leagueId || !req.body.title || !req.body.description) {
-      return res.status(400).send('League Id, Team Id, Post Title, and Post Description are all required');
+    if (!req.body.leagueId || !req.body.description || !req.body.teamId) {
+      return res.status(400).send('League Id, Team Id, and Post Description are all required');
     }
 
     mongoose.model('League').findById(req.body.leagueId, (err, foundLeague) => { // FIXME: Change to findOne for ID && teamId in teams array
@@ -21,7 +21,7 @@
       if (!foundLeague.teams.indexOf(req.body.teamId) === -1) { return res.status(400).send('Selected Team does not belong to selected League'); }
       mongoose.model('Team').findOne({ _id: req.body.teamId, owner: req.user }, (err, foundTeam) => {
         if (err) { return res.status(400).send(err); }
-        if (!foundTeam) { return res.status(403).send('You do not own a Team with thid Id'); } //This should never happen if league has refernce to teamId
+        if (!foundTeam) { return res.status(403).send('You do not own a Team with this Id'); } //This should never happen if league has refernce to teamId
 
         let newPost = new Post();
         newPost.title = req.body.title;

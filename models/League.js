@@ -6,7 +6,7 @@
     name: { type: String, required: true },
     commissioner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     teams: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Team' }],
-    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Posts' }]
+    posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }]
   });
 
   leagueSchema.statics.createMW = (req, res, next) => {
