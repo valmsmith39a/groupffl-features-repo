@@ -171,26 +171,33 @@ body {
 
 .league-panel {
   background-color: white;
-
   height: 358px;
   margin-top: 25px;
   overflow: scroll;
 
   h3 {
+    background-color: white;
+    color: #00316b;
+
+    text-transform: uppercase;
+    font-family: helvetica;
     margin-top: 0;
+    text-align: center;
   }
 
   .leagues-group {
+    background-color: #f0f0f0;
+
     padding-left: 0;
     text-align: left;
 
-      .list-group-item {
-        padding-right: 10px;
-        padding-left: 40px;
-        vertical-align: middle;
-        margin-left:20px;
-        margin-right:20px;
-      }
+    .list-group-item {
+      padding-right: 10px;
+      padding-left: 40px;
+      vertical-align: middle;
+      margin-left:20px;
+      margin-right:20px;
+    }
   }
 }
 
