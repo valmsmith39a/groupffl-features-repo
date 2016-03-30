@@ -60,7 +60,9 @@ class LeaguesPanel extends Component {
           My Leagues
         </h3>
         <ul className="leagues-group">
-          {this.renderList()}
+          <div className="leagues-item">
+            {this.renderList()}
+          </div>
         </ul>
       </div>
     );
