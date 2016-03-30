@@ -48,14 +48,16 @@ class Navbar extends Component {
         <div className="container">
           <div className="pull-left navbar-logo">
             <h3>
-              <Link to="/" className="navbar-logo-button"> GroupFFL</Link>
+              <Link to="/" className="navbar-logo-button"> GFFL
+                <span className="subtitle">Group Fantasy Football League</span>
+              </Link>
             </h3>
           </div>
           <div className="pull-right navbar-buttons">
             {this.renderNavButtons()}
           </div>
           <div className="text-center navbar-title">
-            <h2>This Is A Super Awesome Title</h2>
+            {/*<h3>This Is A Super Awesome Title</h3>*/}
           </div>
         </div>
       </div>
