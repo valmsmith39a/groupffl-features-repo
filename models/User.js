@@ -124,12 +124,11 @@
   userSchema.statics.getUserLeaguesMW = (req, res, next) => {
     User.findById(req.user).deepPopulate('leagues.teams').exec( (err, user) => {
       if (err) { return res.status(400).send(err); }
-      req.userLeagues = [];
-      req.userLeagues = user.leagues.map(league => {
-        var teamObj = league.teams.filter(team => team.owner.toString() == req.user.toString());
+      user.leagues = user.leagues.map(league => {
+        var teamObj = !league.teams ? [] : league.teams.filter(team => team.owner.toString() == req.user.toString());
         return {
           leagueName: league.name,
-          teamName: teamObj[0].name,
+          teamName: teamObj[0] ? teamObj[0].name : 'No Teams',
           _id: league._id
         };
       });
